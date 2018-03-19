@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/check',function(){
+	return response()->json([
+    'name' => ['cr' => 'shit_less home'],
+    'state' => 'CA'
+]);
+});
+
+
+
+
+
