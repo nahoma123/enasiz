@@ -25,6 +25,3 @@ Route::get('/check',function(){
 Route::post('/addUsersBetOnCup', 'BetsOnCupsController@addBetOnCup');
 
 
-
-
-
