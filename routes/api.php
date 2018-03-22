@@ -22,6 +22,7 @@ Route::get('/check',function(){
     'state' => 'CA'
 ]);
 });
+Route::post('/addUsersBetOnCup', 'BetsOnCupsController@addBetOnCup');
 
 
 
