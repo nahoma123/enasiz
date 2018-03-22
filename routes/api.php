@@ -23,6 +23,7 @@ Route::get('/check',function(){
 ]);
 });
 Route::post('/addUsersBetOnCup', 'BetsOnCupsController@addBetOnCup');
+Route::get('/viewMatch', 'MatchController@viewMatch');
 
 
 
