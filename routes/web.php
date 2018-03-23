@@ -18,3 +18,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/matchdetail', function(){
+	return view('matchdetail');
+});
+Route::get('/matches', function(){
+	return view('matchespage');
+});
+Route::get('/manageaccounts', function(){
+	return view('manageAccountspage');
+});
+Route::get('/betsmanagement', function(){
+	return view('betsmanagement');
+});
