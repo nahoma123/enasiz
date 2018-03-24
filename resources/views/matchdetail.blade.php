@@ -2,15 +2,15 @@
 
 @section('content')
 		
-			<div style="border:1px solid balck; margin-left:20%;margin-right:20%; width:60%; height:400px;">
+			<div style="border:1px solid balck; margin-left:20%;margin-right:20%;margin-top:7%; width:60%; height:400px;">
 				<div class="header" style= "background-color:rgb(229, 232, 234);">
 					<h2>Trending Fexture</h2>
 					<br>
 				</div>
-				<div style="background-color: white;">
+				<div style="background-color: white;" >
 					<center>
 						<div>
-							<table class="table table-striped">
+							<table class="table table-striped;.col-xs-12 .col-sm-6 .col-md-8">
 								<tr>
 									<td>No</td>
 									<td>games</td>
@@ -74,9 +74,9 @@
 					
 				</div>
 				<div style="background-color: white;">
-					<center>
+					<center >
 						<div>
-							<table class="table table-striped">
+							<table class="table table-striped;.col-xs-12 .col-sm-6 .col-md-8">
 								<tr>
 									<td>No</td>
 									<td>games</td>

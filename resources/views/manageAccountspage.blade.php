@@ -51,8 +51,8 @@
 			        <h4 class="modal-title" id="myModalLabel">Acount Mangement Form</h4>
 			      </div>
 			      <div class="modal-body">
-			        	<div class="row" style="">
-					  	<div class="col-xs-6 col-sm-2">
+			        	<div class="row">
+					  	<div class="col-xs-6 col-sm-3">
 						  	<h5><b>Credit Amount</b></h5>
 				  		</div>
 					  	<div class="col-xs-6 col-sm-3" >
@@ -61,7 +61,7 @@
 						<div class="col-xs-6 col-sm-3" >
 						  	<input class="form-control" id="rechargeAmount" type="text" placeholder="00.00 Birr" >
 						</div>
-						<div class="btn-group" role="group" aria-label="..." style="float:right; margin-right: 20px">
+						<div class="btn-group" role="group" aria-label="..." style="float:right; margin-top:30px;margin-right: 20px">
 						  <button type="button" class="btn btn-default"style="color:green">
 						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Recharge</button>
 						  <button type="button" class="btn btn-default" style="color:red">

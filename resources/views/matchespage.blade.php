@@ -3,7 +3,7 @@
 @section('content')
 <div class="panel panel-default" style="border:2px solid balck; margin-left:20%;margin-right:20%; width:60%;">
   <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
+    <h3 class="panel-title"><h4><b>Match Entry Form</b></h4></h3>
   </div>
   <div class="panel-body">
     <div style="border-radius:4px;background-color: #eeeeee;border:1px solid balck; margin-left:2%;margin-right:2%; width:96%;" >		

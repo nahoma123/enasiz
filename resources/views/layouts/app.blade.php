@@ -41,7 +41,7 @@
  
     <div id="app">
     
-        <nav class="navbar navbar-default navbar-static-top" style="box-shadow: 0px 2px 10px rgb(48,151,209); background:linear-gradient(180deg,rgb(251,251,251), rgb(48,151,209))">
+        <nav class="navbar navbar-default navbar-static-top" style="box-shadow: 0px 2px 10px rgb(48,151,209); background:linear-gradient(180deg,rgb(251,251,251), rgb(61, 85, 99))">
             <div class="container" style="height:70px">
                 <div class="navbar-header">
 
@@ -53,7 +53,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#" style="padding-top: 0px; padding-bottom: 14px; width: 80px">
-                        <img alt="Brand" src="Logo_Full_Flag.png" style="height:60px; width:60px;">
+                        <img alt="Brand" src="Logo_Full_Flag.png" style="height:60px; width:60px; margin-top:7px">
                     </a>
                     <!-- Branding Image -->
                       
