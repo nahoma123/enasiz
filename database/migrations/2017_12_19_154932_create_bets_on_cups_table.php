@@ -14,7 +14,7 @@ class CreateBetsOnCupsTable extends Migration
     public function up()
     {
         Schema::create('bets_on_cups', function (Blueprint $table) {
-            $table->increments('user_bet_id');
+            $table->increments('cup_id');
             $table->integer('first_team');
             $table->integer('second_team');
             $table->integer('third_team');

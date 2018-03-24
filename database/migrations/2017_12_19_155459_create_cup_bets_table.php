@@ -15,12 +15,12 @@ class CreateCupBetsTable extends Migration
     {
         Schema::create('cup_bets', function (Blueprint $table) {
             $table->increments('id');
-$table->double('minimum_wage');
-$table->double('maximum_wage');
-$table->double('created_at');
-$table->integer('maximum_number_of_wagers');
-$table->string('bet_status');
-$table->integer('cups_id');
+            $table->double('minimum_wage');
+            $table->double('maximum_wage');
+            $table->double('created_at');
+            $table->integer('maximum_number_of_wagers');
+            $table->string('bet_status');
+            $table->integer('cups_id');
         });
     }
 
