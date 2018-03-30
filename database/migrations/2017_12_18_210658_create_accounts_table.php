@@ -20,6 +20,15 @@ class CreateAccountsTable extends Migration
             $table->integer('users_id');
             $table->timestamps();
         });
+        Schema::create('transactions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->double('amount');
+            $table->string('description',300);
+            $table->integer('account_id');
+            $table->datetime('time')->default(\Carbon\Carbon::now());
+            $table->string('method',45);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,5 +39,6 @@ class CreateAccountsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('accounts');
+        Schema::dropIfExists('transactions');
     }
 }
