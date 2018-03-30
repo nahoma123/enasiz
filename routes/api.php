@@ -17,12 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/check',function(){
-	return response()->json([
+	return response()->json([[
     'name' => ['cr' => 'shit_less home'],
     'state' => 'CA'
-]);
+]]);
 });
 Route::post('/addUsersBetOnCup', 'BetsOnCupsController@addBetOnCup');
-Route::get('/viewMatch', 'MatchController@viewMatch');
+Route::get('/matches/showall', 'MatchController@viewMatch');
 
 

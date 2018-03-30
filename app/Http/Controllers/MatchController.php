@@ -9,9 +9,8 @@ class MatchController extends Controller
 {
     public function viewMatch(Match $match)
     {
-        return response()->json([
-            'match' => $match
-        ]);
+        $match = Match::all();
+        return $match; 
     }
 
     public function index()
