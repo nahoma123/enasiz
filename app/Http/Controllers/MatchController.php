@@ -14,6 +14,11 @@ class MatchController extends Controller
         ]);
     }
 
+    public function addMatch()
+    {
+
+    }
+
     public function index()
     {
         //
