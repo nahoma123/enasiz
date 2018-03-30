@@ -7,11 +7,24 @@ use Illuminate\Http\Request;
 
 class MatchBetsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function addMatchBets(MatchBet $matchBet, Match $match)
+    {
+        $matchBet = new matchBet;
+        //$matchBet->matchBet_id = $->id;
+        $matchBet->minimum_wage = $request->minimum_wage;
+        $matchBet->maximum_wage = $request->maximum_wage;
+        $matchBet->type_of_bet = $request->type_of_bet;
+
+        $matchBet->match_id = $match->id;
+        $matchBet->post_id = $post->id;
+        $matchBet->save();
+
+
+        return back();
+    }
+
+
     public function index()
     {
         //

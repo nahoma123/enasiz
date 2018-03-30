@@ -13,6 +13,11 @@ class MatchController extends Controller
         return $match; 
     }
 
+    public function addMatch()
+    {
+
+    }
+
     public function index()
     {
         //
