@@ -17,7 +17,7 @@ class MatchBetsController extends Controller
         $matchBet->type_of_bet = $request->type_of_bet;
 
         $matchBet->match_id = $match->id;
-        $matchBet->post_id = $post->id;
+        $matchBet->user_id = Auth::user()->id;
         $matchBet->save();
 
 
