@@ -13,6 +13,9 @@ class CreateUserBetsTable extends Migration
      */
     public function up()
     {
+        /**
+         *  This is bets made by users and their results
+         */
         Schema::create('user_bets', function (Blueprint $table) {
             $table->increments('id');
             $table->double('bet_amount');

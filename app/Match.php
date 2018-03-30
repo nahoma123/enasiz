@@ -12,10 +12,10 @@ class Match extends Model
         'start_time','end_time','match_status','venue'
         ];
     public function homeTeam(){
-        return $this->belongsToMany('App\Team');
+        return $this->belongsToMany('App\Team','hometeam_team');
     }
     public function awayTeam(){
-        return $this->belongsToMany('App\Team');
+        return $this->belongsToMany('App\Team','awayteam_team');
     }
     
 }
