@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeamsInCupsTable extends Migration
+class CreateCompetitionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTeamsInCupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('teams_in_cups', function (Blueprint $table) {
+        Schema::create('competition', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateTeamsInCupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams_in_cups');
+        Schema::dropIfExists('competition');
     }
 }

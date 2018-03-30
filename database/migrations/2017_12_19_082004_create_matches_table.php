@@ -17,14 +17,10 @@ class CreateMatchesTable extends Migration
             $table->increments('id');
             $table->string('competition_type');
             $table->integer('competition_id');
-			$table->string('thumbnail_home');
-			$table->string('thumbnail_away');
             $table->integer('home_team'); //
             $table->integer('away_team'); //
             $table->dateTime('start_time');
             $table->dateTime('end_time');
-            $table->double('winning_odds_home');
-            $table->double('winning_odds_away');
             $table->string('match_status');
             $table->string('venue');
             $table->timestamps();

@@ -17,8 +17,8 @@ class CreateMatchBetsTable extends Migration
             $table->increments('id');
             $table->double('minimum_wage');
             $table->double('maximum_wage');
-            $table->double('profit_margin_home');
-            $table->double('profit_margin_away');
+            $table->double('winning_odds_home');
+            $table->double('winning_odds_away');
             $table->string('type_of_bet');
             $table->string('password')->nullable();
             $table->dateTime('bet_created_at')->default(Carbon\Carbon::now());
