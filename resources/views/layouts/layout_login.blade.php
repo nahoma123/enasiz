@@ -154,6 +154,7 @@
                     <input name="user[password]" id="user[password]" class="form-control form-control-lg input-block" placeholder="Create a password" type="password">
                   </auto-check>
                 </dd>
+                
                 <p class="form-control-note">Use at least one letter, one numeral, and seven characters.</p>
               </dl>
               <input name="source" class="js-signup-source" value="form-home" type="hidden">
