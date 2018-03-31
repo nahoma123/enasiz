@@ -1,0 +1,27 @@
+.upper_menus:hover{
+    background-color: red;
+}
+
+.navbar-righ{
+    margin-left: -25px;
+    margin-top: 15px;
+}
+
+.upper_title{
+    margin-left: 80px;
+}
+.upper_search{
+    margin-top: 10px;
+    background: #3F4448;
+    border: solid grey 1px;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+}
+.navbar-brand{
+    margin-top: 5px;
+    font-size: 18px;
+}
+.navbar-nav>li>a{
+    color: red;
+}

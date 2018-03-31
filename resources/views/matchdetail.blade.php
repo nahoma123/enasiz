@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+	<ul class="nav nav-tabs" style="width: 60%; margin-left: 20%">
+		<li  ><a href="#">Home</a></li>
+		<li class="active" style="border-top: solid 2px orangered; border-radius: 5px"><a href="#">Matches</a></li>
+		<li><a href="#">Blah blah</a></li>
+	</ul>
 		
-			<div style="border:1px solid balck; margin-left:20%;margin-right:20%;margin-top:7%; width:60%; height:400px;">
+			<div style="border:1px solid black; margin-left:20%;margin-right:20%;margin-top:7%; width:60%; height:400px;">
 				<div class="header" style= "background-color:rgb(229, 232, 234);">
 					<h2>Trending Fexture</h2>
 					<br>
