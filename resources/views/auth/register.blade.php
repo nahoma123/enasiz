@@ -39,6 +39,50 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Gender/Sex</label>
+
+                            <div class="col-md-6">
+                                <select id="gender"  class="form-control" name="gender" required>
+                                    <option value="1"> Male </option>
+                                    <option value="0">Female</option>
+                                </select>
+
+                                @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address"  type="text" class="form-control" name="address" required />
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
+                            <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
+
+                            <div class="col-md-6">
+                                <input id="phone_number"  type="number" class="form-control" name="phone_number" required />
+
+                                @if ($errors->has('phone_number'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone_number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -52,7 +96,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        <input hidden name="privilage_level" value="2"/>
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 

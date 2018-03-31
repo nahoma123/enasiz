@@ -34,3 +34,6 @@ Route::get('/manageaccounts', function(){
 Route::get('/betsmanagement', function(){
 	return view('betsmanagement');
 });
+Route::get('/testlay',function(){
+        return view('layouts.layout_login');
+});

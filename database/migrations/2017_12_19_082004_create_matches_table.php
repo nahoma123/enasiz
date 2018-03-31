@@ -17,6 +17,8 @@ class CreateMatchesTable extends Migration
             $table->increments('id');
             $table->string('competition_type');
             $table->integer('competition_id');
+			$table->string('thumbnail_home');
+			$table->string('thumbnail_away');
             $table->integer('home_team'); //
             $table->integer('away_team'); //
             $table->dateTime('start_time');
