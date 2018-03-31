@@ -14,6 +14,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+//        Relation::morphMap([
+//            'leagues' => 'App\League',
+//            'cups' => 'App\Cup',
+//        ]);
     }
 
     /**
