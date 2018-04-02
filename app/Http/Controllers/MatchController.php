@@ -10,6 +10,7 @@ class MatchController extends Controller
     public function addMatch(Request $request)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $match = new Match;
         $match->group_name = $request->group_name;
         $match->description = $request->description;
@@ -21,12 +22,20 @@ class MatchController extends Controller
         $m = Match::all()->load('awayteam','hometeam','competition','bets');
         return $m; 
 >>>>>>> fba5d5848770efd28ad9764df2b8536687dbd748
+=======
+        $m = Match::all()->load('awayteam','hometeam','competition','bets');
+        return $m; 
+>>>>>>> fba5d5848770efd28ad9764df2b8536687dbd748
     }
 
     public function viewMatch(Match $match)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
     
+=======
+        
+>>>>>>> fba5d5848770efd28ad9764df2b8536687dbd748
 =======
         
 >>>>>>> fba5d5848770efd28ad9764df2b8536687dbd748
