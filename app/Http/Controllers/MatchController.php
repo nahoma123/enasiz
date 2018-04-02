@@ -7,15 +7,21 @@ use Illuminate\Http\Request;
 
 class MatchController extends Controller
 {
-    public function viewMatch(Match $match)
+    public function addMatch(Request $request)
     {
-        $match = Match::all();
-        return $match; 
+        $match = new Match;
+        $match->group_name = $request->group_name;
+        $match->description = $request->description;
+        $match->user_id = Auth::user()->id;
+        $match->department = Auth::user()->department;
+        $match->visibility = $request->visibility;
+
     }
 
-    public function addMatch()
+    public function viewMatch(Match $match)
     {
-
+        $match = Match::all()->load('awayteam', 'hometeam', 'competition', 'bets');
+        return $match; 
     }
 
     public function index()
