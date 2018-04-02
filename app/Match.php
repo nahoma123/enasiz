@@ -23,5 +23,4 @@ class Match extends Model
     public function competition(){
         return $this->morphTo();
     }
-    
 }
