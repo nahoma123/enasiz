@@ -3,20 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/layouts/app.blade.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2017_12_19_082004_create_matches_table.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Http/Controllers/Auth/RegisterController.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2017_12_18_210658_create_accounts_table.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2017_12_18_201511_create_transactions_table.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/routes/web.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/User.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/layouts/layout_login.blade.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2017_12_18_211316_create_bets_on_transfer_table.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2017_12_19_155459_create_cup_bets_table.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/auth/register.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Providers/AppServiceProvider.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/League.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Http/Controllers/MatchController.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2017_12_19_082705_create_bets_table.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Match.php</file>
             <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/routes/api.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2018_03_30_131503_create_competition_table.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Cup.php</file>
         </group>
     </open-files>
 </project-private>

@@ -8,7 +8,7 @@ class Cup extends Model
 {
     //
     public function matches(){
-        $this->morphMany('App\Match', 'competition');
+        $this->morphTo('App\Match', 'competition');
     }
 }
     

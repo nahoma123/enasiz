@@ -9,13 +9,13 @@ class MatchController extends Controller
 {
     public function viewMatch(Match $match)
     {
-        $match = Match::all();
-        return $match; 
+        $m = Match::all()->load('awayteam','hometeam','competition','bets');
+        return $m; 
     }
 
     public function addMatch()
     {
-
+        
     }
 
     public function index()

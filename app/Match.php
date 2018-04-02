@@ -17,6 +17,9 @@ class Match extends Model
     public function awayTeam(){
         return $this->belongsToMany('App\Team','awayteam_team','awayteam_id')->withTimestamps();
     }
+    public function bets(){
+        return $this->hasMany(MatchBet::class);
+    }
     public function competition(){
         return $this->morphTo();
     }

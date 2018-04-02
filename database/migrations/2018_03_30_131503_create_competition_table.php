@@ -36,7 +36,7 @@ class CreateCompetitionTable extends Migration
             $table->timestamps();
         });
         Schema::create('leagues', function (Blueprint $table) {
-             $table->increments('id');
+            $table->increments('id');
             $table->string('nation');
             $table->string('league_name');
             $table->dateTime('start_time');
