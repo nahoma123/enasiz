@@ -17,8 +17,8 @@ class CreateCompetitionTable extends Migration
             $table->increments('id');
             $table->string('competition_type');
             $table->integer('competition_id');
-            $table->integer('home_team'); //
-            $table->integer('away_team'); //
+//            $table->integer('home_team'); //
+//            $table->integer('away_team'); //
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->string('match_status');
@@ -58,6 +58,11 @@ class CreateCompetitionTable extends Migration
             $table->smallInteger('home_team_fouls')->nullable();
             $table->smallInteger('away_team_fouls')->nullable();
             $table->integer('match_id'); // key to match tables
+            $table->timestamps();
+        });
+        Schema::create('cup_team', function (Blueprint $table){
+           $table->integer('cup_id');
+           $table->integer('team_id');
             $table->timestamps();
         });
     }

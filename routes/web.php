@@ -25,9 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matchdetail', function(){
 	return view('matchdetail');
 });
-Route::get('/matches', function(){
-	return view('matchespage');
-});
+Route::get('/matches', 'MatchController@matchesPage');
+Route::get('/findTeamToDropdown', 'MatchController@findTeamToDropdown');
+
 Route::get('/manageaccounts', function(){
 	return view('manageAccountspage');
 });

@@ -12,11 +12,50 @@
 	    <h4><label for="id">Competition Type</label></h4>
 
 		  <div>
-			  <select onchange="jsFunction()" id="selectOpt1" style="width: 20%" class="form-control" name="competition_type">
+			  <select id="selectOpt1" style="width: 20%" class="form-control competition_type">
 				  <option name="xxid" value="1">League</option>
 				  <option name="xxid" value="2">Cup</option>
 			  </select>
 		  </div>
+          <div class="form-group">
+              <h4><label for="id">Competition Name</label></h4>
+              <div>
+                  <select id="selectOpt2" style="width: 20%" class="form-control competition_name" name="competition_name">
+                      @foreach($leagues as $league)
+                        <option value="{{$league->id}}">{{$league->league_name}}</option>
+                      @endforeach
+                  </select>
+              </div>
+              <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $(document).on('change', '.competition_name', function () {
+                            //console.log("Ow working");
+
+                            var comp_id = $(this).val();
+                            var div = $(this).parent();
+                            //console.log(cat_id);
+							var op = " ";
+                            $.ajax({
+                               type:'get',
+                                url:'{!!URL::to('findTeamToDropdown')!!}',
+                                data:{'id':comp_id},
+                                success:function (data) {
+//                                    console.log(data);
+//                                    console.log(data.length);
+                                    op += '<option value="0" selected disabled>chose here</option>';
+                                    for(var i = 0; i < data.length; i++){
+                                        op += '<option value="'+data[i].id+'">'+data[i].team_name+'</option>';
+                                    }
+                                },
+                                error:function () {
+
+                                }
+
+                            });
+                        });
+                    });
+              </script>
 
 	    {{--<div class="dropdown">--}}
 		  {{--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">--}}
@@ -29,36 +68,6 @@
 		    {{--<li><a href="#">International</a></li>--}}
 		  {{--</ul>--}}
 		{{--</div>--}}
-		<div class="form-group">
-	    <h4><label for="id">Competition Name</label></h4>
-			<div>
-				<select id="selectOpt2" style="width: 20%" class="form-control" name="competition_type">
-					<option name="xxid" value="1">Het 1</option>
-					<option name="xxid" value="2">gfgdf 2</option>
-				</select>
-			</div>
-			<script>
-				function jsFunction() {
-					var list1 = document.getElementById("selectOpt1");
-					var myselect = list1.options[list1.selectedIndex].value;
-					var list2 = document.getElementById("selectOpt2");
-					for (i = 0; i < list2.options.length; i++){
-					    list2.options[i] = null;
-					}
-					if(myselect === "1"){
-					    var opt = document.createElement('option');
-					    opt.value = "1";
-					    opt.innerHTML = "FIRST";
-					    list2.appendChild(opt);
-					}
-					else{
-                        var opt = document.createElement('option');
-                        opt.value = "2";
-                        opt.innerHTML = "SECOND";
-                        list2.appendChild(opt);
-					}
-                }
-			</script>
 	    {{--<div class="dropdown">--}}
 		  {{--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">--}}
 		    {{--Name--}}
