@@ -38,6 +38,16 @@
         body.css('background', backgrounds[0]);
         });
     </script>
+    <style>
+        .item_group:hover{
+           background-color: black;           
+        }
+        .item_group:hover a{
+           color: white !important;         
+        }
+        
+    </style>
+</head>
 
 <body>
  
@@ -46,29 +56,7 @@
         <nav class="navbar navbar-default navbar-static-top" style="background:#24292E">
             <div class="container" style="height:55px">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="upper_title">
-                    <a class="navbar-brand" href="#" style="padding-top: 0px; padding-bottom: 14px; width: 80px">
-                        <img alt="Brand" src="Logo_Full_Flag.png" style="height:30px; width:30px; margin-top:7px; margin-left: 30px">
-                    </a>
-                    <!-- Branding Image -->
-                      
-                    <a class="navbar-brand" href="{{ url('/') }}" >
-                        {{ config('Enasiz', 'Enasiz') }}
-                    </a>
-                        <input class="upper_search" placeholder="Search" type="text">
-                    </div>
-                    
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+<div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
@@ -78,12 +66,23 @@
                     <ul class="nav navbar-nav navbar-righ">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="upper_menus" style="color: #a1a7b4" href="{{ route('login') }}"><b>Login</b></a></li>
-                            <li><a class="upper_menus" style="color: #a1a7b4" href="{{ route('register') }}"><b>Register</b></a></li>
-                            <li><a class="upper_menus" style="color: #a1a7b4" href="../matches" data-target="#matches"><b>Matches</b></a></li>
-                            <li><a class="upper_menus" style="color: #a1a7b4" href="../manageaccounts" data-target="#mangeAccounts"><b>Manage Accounts</b></a></li>
-                            <li><a class="upper_menus" style="color: #a1a7b4" href="../matchdetail" data-target="#home"><b>Home</b></a></li>
+                        <a class="navbar-brand" href="#" style="padding-top: 0px; padding-bottom: 14px; width: 80px">
+                        <img alt="Brand" src="Logo_Full_Flag.png" style="height:30px; width:30px; margin-top:7px; margin-left: 30px">
+                    </a>
+                    <!-- Branding Image -->
+                      
+                    <a class="navbar-brand" href="{{ url('/') }}" >
+                            
+                            <li class="item_group"><a class="upper_menus" style="color: #a1a7b4" href="{{ route('login') }}"><b>Manage Matches</b></a></li>
+                            <li  class="item_group"><a class="upper_menus" style="color: #a1a7b4" href="{{ route('register') }}"><b>Manage Bets</b></a></li>
+                            <li class="item_group"><a class="upper_menus" style="color: #a1a7b4" href="../matches" data-target="#matches"><b>Manage Account</b></a></li>
+                            <li class="item_group"><a class="upper_menus" style="color: #a1a7b4" href="../manageaccounts" data-target="#mangeAccounts"><b>Manage Accounts</b></a></li>
+                            <li class="item_group"><a class="upper_menus" style="color: #a1a7b4" href="../matchdetail" data-target="#home"><b>Manage Leagues</b></a></li>
+                            <li class="item_group"><a class="upper_menus" style="color: #a1a7b4" href="../matchdetail" data-target="#home"><b>Manage Cups</b></a></li>
+                            <li class="item_group"><a class="upper_menus" style="color: #a1a7b4" href="../matchdetail" data-target="#home"><b>Reports</b></a></li>
 
+
+                            
                         <li><a style="color: white; margin-left: 50px" href="#" data-target="#"><b><span class="glyphicon glyphicon-bell" ></span></b></a></li>
                         <li style="color: white; margin-top: 15px">
                         <div class="dropdown">
@@ -133,6 +132,20 @@
                         @endguest
                     </ul>
                 </div>
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="upper_title">
+                                          
+                    </div>
+                    
+                </div>
+
+                
             </div>
         </nav>
 

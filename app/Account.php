@@ -16,3 +16,4 @@ class Account extends Model
         return $this->hasMany(Transaction::class,'id');
     }
 }
+

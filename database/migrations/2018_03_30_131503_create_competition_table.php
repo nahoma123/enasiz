@@ -17,8 +17,6 @@ class CreateCompetitionTable extends Migration
             $table->increments('id');
             $table->string('competition_type');
             $table->integer('competition_id');
-            $table->integer('home_team'); //
-            $table->integer('away_team'); //
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->string('match_status');
