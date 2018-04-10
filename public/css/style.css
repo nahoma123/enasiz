@@ -25,3 +25,36 @@
 .navbar-nav>li>a{
     color: red;
 }
+.login-block{
+    margin-left: 40%;
+    margin-top: 10%;
+    border: solid grey 1px;
+    border-radius: 5px;
+}
+.password-input{
+    margin-top: -20px;
+}
+.email-input{
+    margin-top: -15px;
+}
+#password-block{
+    margin-top: -5%;
+}
+#forgot-password{
+    float: right;
+    font-size: 12px;
+}
+#forgot-password:hover{
+    text-decoration: none;
+}
+.sign-in{
+    width: 260px;
+}
+.create-account{
+    margin-left: 39.8%;
+    margin-top: 2%;
+    border: solid grey 1px;
+    border-radius: 5px;
+    width: 25.5%;
+    height: 100px;
+}

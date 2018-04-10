@@ -18,16 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matchdetail', function(){
 	return view('matchdetail');
 });
-Route::get('/matches', function(){
-	return view('matchespage');
-});
+Route::get('/matches', 'MatchController@matchesPage');
+Route::get('/findTeamToDropdown', 'MatchController@findTeamToDropdown');
+Route::get('/findLeagueToDropdown', 'MatchController@findLeagueToDropdown');
+Route::get('/findCupToDropdown', 'MatchController@findCupToDropdown');
+Route::get('/findLeagueTeamToDropdown', 'MatchController@findLeagueTeamToDropdown');
+
 Route::get('/manageaccounts', function(){
 	return view('manageAccountspage');
 });
@@ -37,5 +36,9 @@ Route::get('/betsmanagement', function(){
 Route::get('/testlay',function(){
         return view('layouts.layout_login');
 });
+
 Route::get('/report/userAccountActivity/getForm',  'reportController@showUserAccountActivityForm');
 Route::get('/transactions/viewuser/{user}','reportController@showUserTransactions');
+
+
+Route::post('/addMatch', 'MatchController@addMatch');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BetOnLeague;
+use App\League;
 use Illuminate\Http\Request;
 
 class BetsOnLeaguesController extends Controller
@@ -12,6 +13,19 @@ class BetsOnLeaguesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function putABetOnLeague(League $league, Request $request)
+    {
+        $betOnLeague = new BetOnLeague;
+        $betOnLeague->user_bet_id = Auth::user()->id;
+        $betOnLeague->first_team = $request->first_team;
+        $betOnLeague->second_team = $request->second_team;
+        $betOnLeague->third_team = $request->third_team;
+        $betOnLeague->fourth_team = $request->fourth_team;
+        $betOnLeague->fifth_team = $request->fifth_team;
+        $total_bets_on_a_league = BetOnLeague::where('league_id', '==', $league)->get();
+        $number_of_wagers = ($total_bets_on_a_league).length();
+    }
+
     public function index()
     {
         //

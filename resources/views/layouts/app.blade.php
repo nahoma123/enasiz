@@ -10,6 +10,7 @@
 
         <title>{{ config('Enasiz', 'Enasiz') }}</title>
 
+<<<<<<< HEAD
         {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--}}
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -167,6 +168,36 @@
         }
     </style>
 </head>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    </head>
+
+    {{--<script type="text/javascript">--}}
+    {{--$(function() {--}}
+        {{--var body = $("body");--}}
+        {{--var backgrounds = new Array(--}}
+        {{--"url('5178885footballwallpapershd.jpg')",--}}
+        {{--"url('wdf_2315311.jpg')"--}}
+        {{--);--}}
+        {{--var current = 0;--}}
+
+        {{--function nextBackground() {--}}
+        {{--body.css(--}}
+        {{--'background',--}}
+        {{--backgrounds[current = ++current % backgrounds.length]--}}
+        {{--);--}}
+        {{--body.fadeIn("slow")--}}
+        {{--setTimeout(nextBackground, 3000);--}}
+        {{--}--}}
+        {{--setTimeout(nextBackground, 3000);--}}
+        {{--body.css('background', backgrounds[0]);--}}
+        {{--});--}}
+    {{--</script>--}}
+
 
 <body>
 

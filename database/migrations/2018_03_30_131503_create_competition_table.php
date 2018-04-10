@@ -58,6 +58,11 @@ class CreateCompetitionTable extends Migration
             $table->integer('match_id'); // key to match tables
             $table->timestamps();
         });
+        Schema::create('cup_team', function (Blueprint $table){
+           $table->integer('cup_id');
+           $table->integer('team_id');
+            $table->timestamps();
+        });
     }
 
     /**

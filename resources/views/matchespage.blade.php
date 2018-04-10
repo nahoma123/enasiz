@@ -7,95 +7,149 @@
   </div>
   <div class="panel-body">
     <div style="border-radius:4px;background-color: #eeeeee;border:1px solid darkgrey; margin-left:2%;margin-right:2%; width:96%;" >
-	<form class="form" style="padding: 10px;">
+	<form class="form" style="padding: 10px;" method="post" action="addMatch">
+        {{ csrf_field() }}
 	  <div class="form-group">
 	    <h4><label for="id">Competition Type</label></h4>
 
 		  <div>
-			  <select onchange="jsFunction()" id="selectOpt1" style="width: 20%" class="form-control" name="competition_type">
-				  <option name="xxid" value="1">League</option>
-				  <option name="xxid" value="2">Cup</option>
+			  <select id="selectOpt1" style="width: 30%" class="form-control competition_type" name="competition">
+                  @foreach($competitions as $competition)
+                      <option value="{{$competition->competition_name}}">{{$competition->competition_name}}</option>
+                  @endforeach
 			  </select>
 		  </div>
+          <div class="form-group">
+              <h4><label for="id">Competition Name</label></h4>
+              <div>
+                  <select id="selectOpt2" style="width: 40%" class="competition_name form-control" name="competition_name">
 
-	    {{--<div class="dropdown">--}}
-		  {{--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">--}}
-		    {{--Type--}}
-		    {{--<span class="caret"></span>--}}
-		  {{--</button>--}}
-		  {{--<ul class="dropdown-menu" aria-labelledby="dropdownMenu">--}}
-		    {{--<li><a href="#">Cup</a></li>--}}
-		    {{--<li><a href="#">League</a></li>--}}
-		    {{--<li><a href="#">International</a></li>--}}
-		  {{--</ul>--}}
-		{{--</div>--}}
-		<div class="form-group">
-	    <h4><label for="id">Competition Name</label></h4>
-			<div>
-				<select id="selectOpt2" style="width: 20%" class="form-control" name="competition_type">
-					<option name="xxid" value="1">Het 1</option>
-					<option name="xxid" value="2">gfgdf 2</option>
-				</select>
-			</div>
-			<script>
-				function jsFunction() {
-					var list1 = document.getElementById("selectOpt1");
-					var myselect = list1.options[list1.selectedIndex].value;
-					var list2 = document.getElementById("selectOpt2");
-					for (i = 0; i < list2.options.length; i++){
-					    list2.options[i] = null;
-					}
-					if(myselect === "1"){
-					    var opt = document.createElement('option');
-					    opt.value = "1";
-					    opt.innerHTML = "FIRST";
-					    list2.appendChild(opt);
-					}
-					else{
-                        var opt = document.createElement('option');
-                        opt.value = "2";
-                        opt.innerHTML = "SECOND";
-                        list2.appendChild(opt);
-					}
-                }
-			</script>
-	    {{--<div class="dropdown">--}}
-		  {{--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">--}}
-		    {{--Name--}}
-		    {{--<span class="caret"></span>--}}
-		  {{--</button>--}}
-		  {{--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">--}}
-		    {{--<li><a href="#">ፐሪሚየር ሊግ</a></li>--}}
-		    {{--<li><a href="#">ከፍተኗ ሊግ</a></li>--}}
-		    {{--<li><a href="#">ብሄራዊ ሊግ</a></li>--}}
-		    {{--<li><a href="#">ዲቪዢን ሊግ</a></li>--}}
-		  {{--</ul>--}}
-		  {{----}}
-		{{--</div>--}}
-	  <div class="form-group">
-	    <h4><label for="homeTeam">Home Team</label></h4>
-	    <input type="email" class="form-control" id="HomeTeam" placeholder="Enter the name of the Home team">
-	  </div>
-	  <div class="form-group">
-	    <h4><label for="awayTeam">Away Team</label></h4>
-	    <input type="email" class="form-control" id="AwayTeam" placeholder="Enter the name of the Away team">
-	  </div>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <h4><label for="homeTeam">Home Team</label></h4>
+                  <select id="selectOpt2" style="width: 70%" class="home_team form-control" name="home_team">
+                      <option value="0" disabled="true" selected="true">Home Team</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <h4><label for="awayTeam">Away Team</label></h4>
+                  <select id="selectOpt2" style="width: 70%" class="away_team form-control" name="away_team">
+                      <option value="0" disabled="true" selected="true">Away Team</option>
+                  </select>
+              </div>
+
 	  <div class="form-group">
 	    <h4><label for="startTime">Start Time</label></h4>
-	    <input type="datetime-local" class="form-control" id="StartTime">
+	    <input type="datetime-local" class="form-control" id="StartTime" name="start_time">
 	  </div>
 	  <div class="form-group">
 	    <h4><label for="endTime">End Time</label></h4>
-	    <input type="datetime-local" class="form-control" id="EndTime">
+	    <input type="datetime-local" class="form-control" id="EndTime" name="end_time">
 	  </div>
 	  <div class="form-group">
 	    <h4><label for="venue">Venue</label></h4>
-	    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue">
+	    <input type="text" name="venue" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue">
 	  </div>
 	  <button type="submit" class="btn btn-default">Submit</button>
 	</form>
 	</div>
   </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
 
+        $(document).on('change', '.competition_type', function () {
+            //console.log("Ow working");
+
+            var comp_id = $(this).val();
+            var div = $(this).parent().parent();
+            //console.log(comp_id);
+            var op = "";
+            if (comp_id == 'League'){
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('findLeagueToDropdown')!!}',
+                    data:{'id':comp_id},
+                    success:function (data) {
+                        for(var i = 0; i < data.length; i++){
+                            op += '<option value="'+data[i].id+'">'+data[i].league_name+'</option>';
+                            console.log(op);
+                            //op1 += '<option name="competition_id" hidden value="'+data[i].id+'">'+data[i].league_name+'</option>';
+                        }
+                        div.find('.competition_name').html(" ");
+                        div.find('.competition_name').append(op);
+                    },
+                    error:function () {
+                    }
+                });
+            }
+            else if (comp_id == 'Cup'){
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('findCupToDropdown')!!}',
+                    data:{'id':comp_id},
+                    success:function (data) {
+                        //console.log(data.length);
+                        //op += '<option value="0" selected disabled>choose here</option>';
+                        for(var i = 0; i < data.length; i++){
+                            op += '<option name="competition_name" value="'+data[i].id+'">'+data[i].name+'</option>';
+                        }
+                        div.find('.competition_name').html(" ");
+                        div.find('.competition_name').append(op);
+                    },
+                    error:function () {
+                    }
+                });
+            }
+        });
+        $(document).on('change', '.competition_name', function (){
+            var comp_id = $(this).val();
+            var div = $(this).parent().parent();
+            //console.log(cat_id);
+            var op = " ";
+            $.ajax({
+                type:'get',
+                url:'{!!URL::to('findLeagueTeamToDropdown')!!}',
+                data:{'id':comp_id},
+                success:function (data) {
+                    for(var i = 0; i < data.length; i++){
+                        op += '<option name="home_team" value="'+data[i].id+'">'+data[i].team_name+'</option>';
+                    }
+                    div.find('.home_team').html(" ");
+                    div.find('.home_team').append(op);
+                },
+                error:function () {
+
+                }
+
+            });
+
+        });
+        $(document).on('change', '.competition_name', function (){
+            var comp_id = $(this).val();
+            var div = $(this).parent().parent();
+            //console.log(cat_id);
+            var op = " ";
+            $.ajax({
+                type:'get',
+                url:'{!!URL::to('findLeagueTeamToDropdown')!!}',
+                data:{'id':comp_id},
+                success:function (data) {
+                    for(var i = 0; i < data.length; i++){
+                        op += '<option name="away_team" value="'+data[i].id+'">'+data[i].team_name+'</option>';
+                    }
+                    div.find('.away_team').html(" ");
+                    div.find('.away_team').append(op);
+                },
+                error:function () {
+
+                }
+
+            });
+
+        });
+    });
+</script>
 @endsection
