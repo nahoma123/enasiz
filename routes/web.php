@@ -27,6 +27,9 @@ Route::get('/matchdetail', function(){
 });
 Route::get('/matches', 'MatchController@matchesPage');
 Route::get('/findTeamToDropdown', 'MatchController@findTeamToDropdown');
+Route::get('/findLeagueToDropdown', 'MatchController@findLeagueToDropdown');
+Route::get('/findCupToDropdown', 'MatchController@findCupToDropdown');
+Route::get('/findLeagueTeamToDropdown', 'MatchController@findLeagueTeamToDropdown');
 
 Route::get('/manageaccounts', function(){
 	return view('manageAccountspage');
@@ -37,3 +40,5 @@ Route::get('/betsmanagement', function(){
 Route::get('/testlay',function(){
         return view('layouts.layout_login');
 });
+
+Route::post('/addMatch', 'MatchController@addMatch');
