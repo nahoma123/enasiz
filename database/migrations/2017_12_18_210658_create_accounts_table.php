@@ -16,14 +16,15 @@ class CreateAccountsTable extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->double('current_amount');
-            $table->string('pay_mechanism',100);
-            $table->integer('users_id');
+            
+            $table->integer('users_id');    
             $table->timestamps();
         });
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
             $table->double('amount');
             $table->string('description',300);
+            $table->string('pay_mechanism',100);
             $table->integer('account_id');
             $table->datetime('time')->default(\Carbon\Carbon::now());
             $table->string('method',45);

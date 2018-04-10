@@ -27,9 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function account(){
-        return $this->hasOne('App\Account');
+        return $this->belongsTo('App\Account','id','users_id');
     }
     public function bets(){
         return $this->hasMany('App\UserBet','id');
     }
+    
 }

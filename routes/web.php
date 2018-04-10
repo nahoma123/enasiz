@@ -37,3 +37,5 @@ Route::get('/betsmanagement', function(){
 Route::get('/testlay',function(){
         return view('layouts.layout_login');
 });
+Route::get('/report/userAccountActivity/getForm',  'reportController@showUserAccountActivityForm');
+Route::get('/transactions/viewuser/{user}','reportController@showUserTransactions');

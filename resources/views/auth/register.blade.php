@@ -39,6 +39,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('privilage') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">Previlage</label>
+
+                            <div class="col-md-6">
+                                <select name='privilage'class="form-control">
+                                    <option value="1">Clerk</option>
+                                    <option value="2">Admin</option>
+                                </select>
+                                @if ($errors->has('privilage'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('privilage') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Gender/Sex</label>
 

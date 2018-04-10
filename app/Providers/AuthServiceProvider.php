@@ -23,8 +23,22 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
-
+         $this->registerPolicies();
+        
+        Gate::define('superadmin', function ($user) {
+            return $user->privilage_level==3;
+        });
+        Gate::define('admin', function ($user) {
+            return $user->privilage_level==2;
+        });
+        Gate::define('clerk', function ($user) {
+            return $user->privilage_level==1;
+        });
+        Gate::define('user', function ($user) {
+            return $user->privilage_level==0;
+        });
         //
+       
+ 
     }
 }

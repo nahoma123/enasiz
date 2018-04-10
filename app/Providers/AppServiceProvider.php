@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
 //            'leagues' => 'App\League',
 //            'cups' => 'App\Cup',
 //        ]);
+       
     }
 
     /**
