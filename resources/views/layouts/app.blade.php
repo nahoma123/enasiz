@@ -10,7 +10,6 @@
 
         <title>{{ config('Enasiz', 'Enasiz') }}</title>
 
-<<<<<<< HEAD
         {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--}}
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -236,10 +235,10 @@
                                     </a>
 
                                     <ul class="dropdown-menu pull-right " role="menu">
-                                        <li><a class="" href="{{ url('/report/permission_list') }}">Add Matchr</a></li>
+                                        <li><a class="" href="{{ url('/matches') }}">Add Matchr</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Matchr</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Matchr</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">View Matchsr</a></li>
+                                        <li><a class="" href="{{ url('/viewMatches') }}">View Matchsr</a></li>
 
                                     </ul>
                                 </li>
