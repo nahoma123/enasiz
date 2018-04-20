@@ -43,3 +43,7 @@ Route::get('/transactions/viewuser/{user}','reportController@showUserTransaction
 
 
 Route::post('/addMatch', 'MatchController@addMatch');
+
+Route::get('/viewMatches',  'MatchController@viewMatches');
+Route::get('/deleteMatch/{match_id}', 'MatchController@deleteMatch');
+Route::post('/updateMatch/{match_id}', 'MatchController@updateMatch');
