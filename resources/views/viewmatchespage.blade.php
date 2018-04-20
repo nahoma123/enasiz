@@ -12,7 +12,7 @@
 
 
                         <div class="col-md-7">
-                            <h4>Bootstrap Snipp for Datatable</h4>
+                            
                             <div class="table-responsive">
 
 
@@ -66,10 +66,7 @@
                                 <ul class="pagination pull-right">
                                     <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
                                     <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
+                                    
                                     <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
                                 </ul>
 
@@ -92,7 +89,7 @@
                                 <script>
 
                                 </script>
-                                <h3>{{$match->id}}</h3>
+                                <h3></h3>
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <h4><label for="id">Competition Type</label></h4>

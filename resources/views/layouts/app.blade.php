@@ -244,10 +244,10 @@ body {
                                     </a>
 
                                     <ul class="dropdown-menu pull-right " role="menu">
-                                        <li><a class="" href="{{ url('/matches') }}">Add Matchr</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Matchr</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Matchr</a></li>
-                                        <li><a class="" href="{{ url('/viewMatches') }}">View Matchsr</a></li>
+                                        <li><a class="" href="{{ url('/matches') }}">Add Matches</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Matches</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Matches</a></li>
+                                        <li><a class="" href="{{ url('/viewMatches') }}">View Matches</a></li>
 
                                     </ul>
                                 </li>
