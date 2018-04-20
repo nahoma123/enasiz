@@ -12,7 +12,6 @@
 
 
                         <div class="col-md-7">
-                            <h4>Bootstrap Snipp for Datatable</h4>
                             <div class="table-responsive">
 
 
@@ -36,27 +35,27 @@
                                         <td><p data-placement="top" title="Delete"><a href="/deleteMatch/{{$match->id}}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
                                     </tr>
                                 @endforeach
-                                    <script type="text/javascript">
-                                        $(function(){
-                                            $("button[name=edit]").each(function(){
-                                                $(this).click( function(){
-                                                    matchID = $(this).attr("data-question-id")
-                                                    answer = $("#answer" + questionID).val()
-                                                    console.log($(this).val() == answer)
-                                                    if ($(this).val() == answer) {
-                                                        // $("button[name=choiceBut]").css({ "backgroundColor": 'white' })
-                                                        $(this).css({ "backgroundColor": 'lightgreen' });
-                                                    }else if ($(this).val() != answer) {
-                                                        // $("button[name=choiceBut]").css({ "backgroundColor": 'white' })
-                                                        $(this).css({ "backgroundColor": 'indianred' });
-                                                    }
+                                    {{--<script type="text/javascript">--}}
+                                        {{--$(function(){--}}
+                                            {{--$("button[name=edit]").each(function(){--}}
+                                                {{--$(this).click( function(){--}}
+                                                    {{--matchID = $(this).attr("data-question-id")--}}
+                                                    {{--answer = $("#answer" + questionID).val()--}}
+                                                    {{--console.log($(this).val() == answer)--}}
+                                                    {{--if ($(this).val() == answer) {--}}
+                                                        {{--// $("button[name=choiceBut]").css({ "backgroundColor": 'white' })--}}
+                                                        {{--$(this).css({ "backgroundColor": 'lightgreen' });--}}
+                                                    {{--}else if ($(this).val() != answer) {--}}
+                                                        {{--// $("button[name=choiceBut]").css({ "backgroundColor": 'white' })--}}
+                                                        {{--$(this).css({ "backgroundColor": 'indianred' });--}}
+                                                    {{--}--}}
 
 
-                                                })
+                                                {{--})--}}
 
-                                            })
-                                        })
-                                    </script>
+                                            {{--})--}}
+                                        {{--})--}}
+                                    {{--</script>--}}
 
                                     </tbody>
 
@@ -92,7 +91,6 @@
                                 <script>
 
                                 </script>
-                                <h3>{{$match->id}}</h3>
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <h4><label for="id">Competition Type</label></h4>
