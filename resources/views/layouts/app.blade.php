@@ -10,8 +10,8 @@
 
         <title>{{ config('Enasiz', 'Enasiz') }}</title>
 
-<<<<<<< HEAD
-        {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--}}
+
+        
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet" type="text/css">
@@ -39,133 +39,147 @@
             body.css('background', backgrounds[0]);
         });
     </script> 
-    <style>
-        .pointer:hover{
-            
-        }
-        .anchor1:hover{
-            text-decoration-line: none;
-        }
-        
-        .item_group:hover{
-            background-color: black;           
-        }
-        .item_group:hover a{
-            color: black !important;         
-        }
-        #app-navbar-collapse{
-            width: 100%;
-        }
-        .navbar-header{
-            width: 100%;
-        }
-        #content{
-            margin-top: 140px;
-        }
-        li > .dropdown-menu::after {
-            content: '';
-            display: inline-block;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 6px solid black;
-            position: absolute;
-            top: -6px;
-            left: 120px;
-        }
+    <style type="text/css">
+/*    --------------------------------------------------
+	:: General
+	-------------------------------------------------- */
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #353535;
+}
+.content h1 {
+	text-align: center;
+}
+.content .content-footer p {
+	color: #6d6d6d;
+    font-size: 12px;
+    text-align: center;
+}
+.content .content-footer p a {
+	color: inherit;
+	font-weight: bold;
+}
 
-        .alert{
-            background-color: #ff9900;
-            color: white;
-        }
-        a{
-            background-color: transparent;
-        }
-        .fa-btn {
-            margin-right: 6px;
-        }
-        .nav a{
-            color: #ffffff;
-        }
-        a.topnav_html:hover{
-
-            border-top-style: box;
-            border-radius: 0px !important;
-            color: blue;
-            background-color: black !important;
-        }
-        div.dropdown-menu:hover{
-            color: whitesmoke;
-            border-top: 0px solid transparent;
-            text-shadow: none;
-            font-size: 14px;
-            padding: 12px 20px;
-            padding: 12px 10px \9;
-            -webkit-transition: all 0.4s ease-in-out;
-            -moz-transition: all 0.4s ease-in-out;
-            -o-transition: all 0.4s ease-in-out;
-            -ms-transition: all 0.4s ease-in-out;
-            transition: all 0.4s ease-in-out;
-            box-sizing: border-box;
-        }
-
-        a.topnav_html{
-            border-radius: 0px !important;
-            float:right;
-            color: whitesmoke;
-            border-top: 0px solid transparent;
-            text-shadow: none;
-            font-size: 14px;
-            padding: 12px 20px;
-            padding: 12px 10px \9;
-            -webkit-transition: all 0.4s ease-in-out;
-            -moz-transition: all 0.4s ease-in-out;
-            -o-transition: all 0.4s ease-in-out;
-            -ms-transition: all 0.4s ease-in-out;
-            transition: all 0.4s ease-in-out;
-            box-sizing: border-box;
-        }
-        .topnavContainer{
-            background-color: #337ab7;
-            margin-top: 30px;
-            padding-left: 70px;
-            padding-bottom: 0px !important;
-            margin-bottom: 0px !important;
-        }
-        #welcometxt{
-            font-size: 15px;
-            color: beige;
-            padding-top:4.5px;
-            text-align: left;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .reg-in {
-            padding-right: 70px !important;
-        }
-        .top{
-            background-color: black;
-            //background-color: rgb(95,95,95);
-            padding-bottom: 0px !important;
-            height: 90px;
-
-        }
-
-        #leftNav{
-            background-color: rgb(235,235,235) !important;
-            height: auto 100% !important;
-        }
-        .dropdown-menu>li>a:hover  {
-            background-color: #0088cc;
-        }
-        .dropdown:hover .headermenutxt{
-            color: white;
-        }
-        .dropdown-menu.pull-right{
-            right: auto !important;
-        }
-        .open>a{
-            background-color: black !important;
-        }
+/*	--------------------------------------------------
+	:: Table Filter
+	-------------------------------------------------- */
+.panel {
+	border: 1px solid #ddd;
+	background-color: #fcfcfc;
+}
+.panel .btn-group {
+	margin: 15px 0 30px;
+}
+.panel .btn-group .btn {
+	transition: background-color .3s ease;
+}
+.table-filter {
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+.table-filter tbody tr:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+.table-filter tbody tr td {
+	padding: 10px;
+	vertical-align: middle;
+	border-top-color: #eee;
+}
+.table-filter tbody tr.selected td {
+	background-color: #eee;
+}
+.table-filter tr td:first-child {
+	width: 38px;
+}
+.table-filter tr td:nth-child(2) {
+	width: 35px;
+}
+.ckbox {
+	position: relative;
+}
+.ckbox input[type="checkbox"] {
+	opacity: 0;
+}
+.ckbox label {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.ckbox label:before {
+	content: '';
+	top: 1px;
+	left: 0;
+	width: 18px;
+	height: 18px;
+	display: block;
+	position: absolute;
+	border-radius: 2px;
+	border: 1px solid #bbb;
+	background-color: #fff;
+}
+.ckbox input[type="checkbox"]:checked + label:before {
+	border-color: #2BBCDE;
+	background-color: #2BBCDE;
+}
+.ckbox input[type="checkbox"]:checked + label:after {
+	top: 3px;
+	left: 3.5px;
+	content: '\e013';
+	color: #fff;
+	font-size: 11px;
+	font-family: 'Glyphicons Halflings';
+	position: absolute;
+}
+.table-filter .star {
+	color: #ccc;
+	text-align: center;
+	display: block;
+}
+.table-filter .star.star-checked {
+	color: #F0AD4E;
+}
+.table-filter .star:hover {
+	color: #ccc;
+}
+.table-filter .star.star-checked:hover {
+	color: #F0AD4E;
+}
+.table-filter .media-photo {
+	width: 35px;
+}
+.table-filter .media-body {
+    
+    /* Had to use this style to force the div to expand (wasn't necessary with my bootstrap version 3.3.6) */
+}
+.table-filter .media-meta {
+	font-size: 11px;
+	color: #999;
+}
+.table-filter .media .title {
+	color: #2BBCDE;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: normal;
+	margin: 0;
+}
+.table-filter .media .title span {
+	font-size: .8em;
+	margin-right: 20px;
+}
+.table-filter .media .title span.pagado {
+	color: #5cb85c;
+}
+.table-filter .media .title span.pendiente {
+	color: #f0ad4e;
+}
+.table-filter .media .title span.cancelado {
+	color: #d9534f;
+}
+.table-filter .media .summary {
+	font-size: 14px;
+}
     </style>
 </head>
 
@@ -211,24 +225,18 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul  style="width:100%"class="nav navbar-nav navbar-righ">
-                            <!-- Authentication Links -->
-
-
-                            <!-- Branding Image -->
+                            <!-- Authentication Links -->                            <!-- Branding Image --> 
 
                             @guest
                             <div class="width:100%">
                                 <h1 style='color: white;alignment-adjust: central;padding-left: 12.5%'>Welcome to Enasiz Betting Application Management Portal </h1>
                             </div>  
                             @endguest
-
-
-
-
-                            @auth 
+                            
+                            @auth
                             <a class="navbar-brand" href="{{ url('/') }}" >
                                 <a class="navbar-brand" href="#" style="padding-top: 0px; padding-bottom: 14px; width: 80px">
-                                    <img alt="Brand" src="Logo_Full_Flag.png" class="img-responsive" style="">
+                                    <img alt="Brand" src="/Logo_Full_Flag.png" class="img-responsive" style="">
                                 </a>
                                 <li  style="margin-left:50px"class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -297,8 +305,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a class="" href="{{ url('/report/permission_list') }}">Permission Report</a></li>
+                                        <li><a class="" href="{{ url('/report/userAccountActivity/staffstatus') }}">Check Staff Status</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Detail and General Report</a></li>
+                                    
                                     </ul>
                                 </li>
                                 <li class="dropdown pull-right"style="color: white; ">

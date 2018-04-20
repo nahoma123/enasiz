@@ -14,9 +14,10 @@
 
 		  <div>
 			  <select id="selectOpt1" style="width: 30%" class="form-control competition_type" name="competition">
-                  @foreach($competitions as $competition)
-                      <option value="{{$competition->competition_name}}">{{$competition->competition_name}}</option>
-                  @endforeach
+                  
+                      <option value="League">League</option>
+                      <option value="Cup">Cup</option>
+                  
 			  </select>
 		  </div>
           <div class="form-group">

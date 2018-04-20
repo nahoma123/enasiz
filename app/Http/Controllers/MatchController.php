@@ -38,8 +38,8 @@ class MatchController extends Controller
     public function matchesPage()
     {
         $teams = Team::all();
-        $competitions = Competition::all();
-        return view('matchespage')->with('teams', $teams)->with('competitions', $competitions);
+        
+        return view('matchespage')->with('teams', $teams);
     }
     public function findLeagueTeamToDropdown(Request $request)
     {

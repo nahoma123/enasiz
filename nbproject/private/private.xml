@@ -5,7 +5,16 @@
         <group>
             <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/routes/web.php</file>
             <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/layouts/app.blade.php</file>
-            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Http/Controllers/Auth/LoginController.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/employee_status.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/home.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Http/Controllers/MatchController.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/welcome.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/auth/register.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/report_user_activity.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/matchespage.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/database/migrations/2018_03_30_131503_create_competition_table.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/resources/views/user_account_acivity_form.blade.php</file>
+            <file>file:/D:/Enasiz%20e-betting%20Application/enasiz/app/Http/Controllers/reportcontroller.php</file>
         </group>
     </open-files>
 </project-private>
