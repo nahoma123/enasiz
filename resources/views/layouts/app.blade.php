@@ -229,7 +229,7 @@ body {
 
                             @guest
                             <div class="width:100%">
-                                <h1 style='color: white;alignment-adjust: central;padding-left: 12.5%'>Welcome to Enasiz Betting Application Management Portal </h1>
+                                <h1 style='color: lightblue;padding-left: 0%; margin-left: 80px'>Welcome to Enasiz Betting Application Management Portal </h1>
                             </div>  
                             @endguest
                             
@@ -240,7 +240,7 @@ body {
                                 </a>
                                 <li  style="margin-left:50px"class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Matchs_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Matchs</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right " role="menu">
@@ -253,37 +253,37 @@ body {
                                 </li>
                                 <li  class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Bets_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Bets</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a class="" href="{{ url('/report/permission_list') }}">Add bet_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Bet_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Bet_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">View Bet_r</a></li>
+                                        <li><a class="" href="{{ url('/report/permission_list') }}">Add bet</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Bet</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Bet</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">View Bet</a></li>
                                     </ul>
                                 </li>
                                 <li  class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Accounts_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Accounts</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a class="" href="{{ url('/register') }}">Add Staff_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Deactivate Staff_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Client Currency Management_r</a></li>
+                                        <li><a class="" href="{{ url('/register') }}">Add Staff</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Deactivate Staff</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Client Currency Management</a></li>
 
                                     </ul>
                                 </li>          
                                 <li  class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Leagues_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Leagues</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a class="" href="{{ url('/report/permission_list') }}">Add League_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Manage Teams in Leagues_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update League_r </a></li>
+                                        <li><a class="" href="{{ url('/addLeague') }}">Add League</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Manage Teams in Leagues</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update League </a></li>
 
 
                                     </ul>
@@ -291,7 +291,7 @@ body {
 
                                 <li  class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Cups_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Cups</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
@@ -301,7 +301,7 @@ body {
                                 </li>
                                 <li  class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Reports_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Reports</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">

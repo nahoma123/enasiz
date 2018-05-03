@@ -70,6 +70,7 @@
                                                     </h4>
                                                     <p class="summary">{{$emp->email}}</p>
                                                 </div>
+                                                <a href="/user/deactivate/{{$emp->id}}" style="padding-right: 9px" class="pull-right btn-danger">Deactivate</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -103,6 +104,7 @@
                                                 </h4>
                                                 <p class="summary">{{$emp->email}}</p>
                                             </div>
+                                            <a href="/user/activate/{{$emp->id}}" style="padding-right: 9px" class="pull-right btn-success">Activate</a>
                                         </div>
                                     </td>
                                 </tr>

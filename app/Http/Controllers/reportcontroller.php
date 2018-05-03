@@ -29,5 +29,19 @@ class reportcontroller extends Controller {
 
         return View('report_user_activity')->with('user', $user)->with('account', $account)->with('transaction', $trasactions);
     }
+    public function deactivate(User $user){
+        $user->status=0;
+        $user->save();
+        $employed = User::whereNotIn('privilage_level', [0])->where('status', 1)->get();
+        $unemployed = User::whereNotIn('privilage_level', [0])->where('status', 0)->get();
+        return View('employee_status')->with('employed', $employed)->with('unemployed', $unemployed);
+    }
+     public function activate(User $user){
+        $user->status=1;
+        $user->save();
+        $employed = User::whereNotIn('privilage_level', [0])->where('status', 1)->get();
+        $unemployed = User::whereNotIn('privilage_level', [0])->where('status', 0)->get();
+        return View('employee_status')->with('employed', $employed)->with('unemployed', $unemployed);
+    }
 
 }

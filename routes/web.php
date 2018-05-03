@@ -46,4 +46,8 @@ Route::post('/addMatch', 'MatchController@addMatch');
 
 Route::get('/viewMatches',  'MatchController@viewMatches');
 Route::get('/deleteMatch/{match_id}', 'MatchController@deleteMatch');
+Route::get('/user/deactivate/{user}', 'reportController@deactivate');
+Route::get('/user/activate/{user}', 'reportController@activate');
 Route::post('/updateMatch/{match_id}', 'MatchController@updateMatch');
+Route::get('/addLeague',  'LeagueController@addLeagueView');
+Route::post('/addLeague',  'LeagueController@addLeague');
