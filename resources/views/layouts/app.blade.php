@@ -231,14 +231,14 @@
                                 </a>
                                 <li  style="margin-left:50px"class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Matchs_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Matches</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right " role="menu">
-                                        <li><a class="" href="{{ url('/matches') }}">Add Matchr</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Matchr</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Matchr</a></li>
-                                        <li><a class="" href="{{ url('/viewMatches') }}">View Matchsr</a></li>
+                                        <li><a class="" href="{{ url('/matches') }}">Add Matches</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Matches</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Matches</a></li>
+                                        <li><a class="" href="{{ url('/viewMatches') }}">View Matches</a></li>
 
                                     </ul>
                                 </li>
@@ -256,25 +256,26 @@
                                 </li>
                                 <li  class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Accounts_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Accounts</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a class="" href="{{ url('/register') }}">Add Staff_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Deactivate Staff_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Client Currency Management_r</a></li>
+                                        <li><a class="" href="{{ url('/register') }}">Add Staff</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Deactivate Staff</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Client Currency Management</a></li>
 
                                     </ul>
                                 </li>          
                                 <li  class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <span class="headermenutxt text-bold">Manage Leagues_r</span><span class=" "></span>
+                                        <span class="headermenutxt text-bold">Manage Leagues</span><span class=" "></span>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a class="" href="{{ url('/report/permission_list') }}">Add League_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Manage Teams in Leagues_r</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update League_r </a></li>
+                                        <li><a class="" href="{{ url('/addLeague') }}">Add League</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Manage Teams in Leagues</a></li>
+                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update League </a></li>
+                                        <li><a class="" href="{{ url('/addTeam') }}">Add team</a></li>
 
 
                                     </ul>

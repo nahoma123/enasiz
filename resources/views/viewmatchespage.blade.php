@@ -5,170 +5,104 @@
         <div class="panel-heading">
             <h3 class="panel-title"><h4><b>Matches list</b></h4></h3>
         </div>
-        <div class="panel-body">
-            <div style="border-radius:4px;background-color: #eeeeee;border:1px solid darkgrey; margin-left:2%;margin-right:2%; width:96%;" >
-                <div class="container">
-                    <div class="row">
+        <div class="container">
+            <div class="row">
 
 
-                        <div class="col-md-7">
-                            <div class="table-responsive">
+                <div class="col-md-7">
+                    <div class="table-responsive">
 
+                        <table id="mytable" class="table table-bordred table-striped">
 
-                                <table id="mytable" class="table table-bordred table-striped">
+                            <thead>
+                            <th>League</th>
+                            <th>Match</th>
+                            <th>Time</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            </thead>
+                            <tbody>
 
-                                    <thead>
-                                    <th>League</th>
-                                    <th>Match</th>
-                                    <th>Time</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                    </thead>
-                                    <tbody>
+                            @foreach($matches as $match)
+                                <tr>
+                                    <td>{{ $match->competition->league_name }}</td>
+                                    <td><h6>{{$match->hometeam[0]->team_thumbnail}}</h6><img src="/storage/upload/team_thumbnail/Capture.JPG" style="width: 40px; height: 40px; border-radius: 50%;">{{ $match->hometeam[0]->team_name }} vs {{ $match->awayteam[0]->team_name }}</td>
+                                    <td>{{ $match->start_time }}</td>
+                                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                    <td><button><a href="/addBetOnMatch/{{$match->id}}">Add bet</a></button></td>
+                                </tr>
+                            @endforeach
+                            </tbody>
 
-                                @foreach($matches as $match)
-                                    <tr>
-                                        <td>{{ $match->competition->league_name }}</td>
-                                        <td>{{ $match->hometeam[0]->team_name }} Vs {{ $match->awayteam[0]->team_name }}</td>
-                                        <td>{{ $match->start_time }}</td>
-                                        <td><p data-placement="top" title="Edit"><button value="{{$match->id}}" class="btn btn-primary btn-xs" data-title="Edit" name="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                        <td><p data-placement="top" title="Delete"><a href="/deleteMatch/{{$match->id}}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
-                                    </tr>
-                                @endforeach
-                                    {{--<script type="text/javascript">--}}
-                                        {{--$(function(){--}}
-                                            {{--$("button[name=edit]").each(function(){--}}
-                                                {{--$(this).click( function(){--}}
-                                                    {{--matchID = $(this).attr("data-question-id")--}}
-                                                    {{--answer = $("#answer" + questionID).val()--}}
-                                                    {{--console.log($(this).val() == answer)--}}
-                                                    {{--if ($(this).val() == answer) {--}}
-                                                        {{--// $("button[name=choiceBut]").css({ "backgroundColor": 'white' })--}}
-                                                        {{--$(this).css({ "backgroundColor": 'lightgreen' });--}}
-                                                    {{--}else if ($(this).val() != answer) {--}}
-                                                        {{--// $("button[name=choiceBut]").css({ "backgroundColor": 'white' })--}}
-                                                        {{--$(this).css({ "backgroundColor": 'indianred' });--}}
-                                                    {{--}--}}
+                        </table>
 
+                        <div class="clearfix"></div>
+                        <ul class="pagination pull-right">
+                            <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                        </ul>
 
-                                                {{--})--}}
-
-                                            {{--})--}}
-                                        {{--})--}}
-                                    {{--</script>--}}
-
-                                    </tbody>
-
-                                </table>
-
-                                <div class="clearfix"></div>
-                                <ul class="pagination pull-right">
-                                    <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                </ul>
-
-                            </div>
-
-                        </div>
                     </div>
+
                 </div>
-
-
-                <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                                <h4 class="modal-title custom_align" id="Heading">Edit Match</h4>
-                            </div>
-
-                            <form class="form" style="padding: 10px;" method="post" action="updateMatch/{{$match->id}}">
-                                <script>
-
-                                </script>
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <h4><label for="id">Competition Type</label></h4>
-
-                                    <div>
-                                        <select id="selectOpt1" style="width: 30%" class="form-control competition_type" name="competition">
-                                            @foreach($competitions as $competition)
-                                                <option value="{{$competition->competition_name}}">{{$competition->competition_name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <h4><label for="id">Competition Name</label></h4>
-                                        <div>
-                                            <select id="selectOpt2" style="width: 40%" class="competition_name form-control" name="competition_name">
-
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <h4><label for="homeTeam">Home Team</label></h4>
-                                            <select id="selectOpt2" style="width: 70%" class="home_team form-control" name="home_team">
-                                                <option value="0" disabled="true" selected="true">Home Team</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <h4><label for="awayTeam">Away Team</label></h4>
-                                            <select id="selectOpt2" style="width: 70%" class="away_team form-control" name="away_team">
-                                                <option value="0" disabled="true" selected="true">Away Team</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <h4><label for="startTime">Start Time</label></h4>
-                                            <input type="datetime-local" class="form-control" id="StartTime" name="start_time">
-                                        </div>
-                                        <div class="form-group">
-                                            <h4><label for="endTime">End Time</label></h4>
-                                            <input type="datetime-local" class="form-control" id="EndTime" name="end_time">
-                                        </div>
-                                        <div class="form-group">
-                                            <h4><label for="venue">Venue</label></h4>
-                                            <input type="text" name="venue" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue">
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
-
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-
-
-
-                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                                <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-
-                            </div>
-                            <div class="modal-footer ">
-                                <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span>Yes</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-
             </div>
+        </div>
+
+
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input class="form-control " type="text" placeholder="Mohsin">
+                        </div>
+                        <div class="form-group">
+
+                            <input class="form-control " type="text" placeholder="Irshad">
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+
+
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
         </div>
     </div>
 
