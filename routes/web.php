@@ -37,6 +37,7 @@ Route::get('/testlay',function(){
         return view('layouts.layout_login');
 });
 
+Route::get('/report/userAccountActivity/staffstatus',  'reportController@getAllStaffStatus');
 Route::get('/report/userAccountActivity/getForm',  'reportController@showUserAccountActivityForm');
 Route::get('/transactions/viewuser/{user}','reportController@showUserTransactions');
 
@@ -45,6 +46,7 @@ Route::post('/addMatch', 'MatchController@addMatch');
 
 Route::get('/viewMatches',  'MatchController@viewMatches');
 Route::get('/deleteMatch/{match_id}', 'MatchController@deleteMatch');
+<<<<<<< HEAD
 Route::post('/updateMatch/{match_id}', 'MatchController@updateMatch');
 Route::get('/addLeague',  'LeagueController@addLeagueView');
 Route::post('/addLeague',  'LeagueController@addLeague');
@@ -52,3 +54,10 @@ Route::get('/addTeam',  'TeamController@addTeamView');
 Route::post('/addTeam',  'TeamController@addTeam');
 Route::get('/addBetOnMatch/{match_id}',  'MatchBetsController@addBetOnMatchView');
 Route::post('/addBetOnMatch/{match_id}',  'MatchBetsController@addMatchBets');
+=======
+Route::get('/user/deactivate/{user}', 'reportController@deactivate');
+Route::get('/user/activate/{user}', 'reportController@activate');
+Route::post('/updateMatch/{match_id}', 'MatchController@updateMatch');
+Route::get('/addLeague',  'LeagueController@addLeagueView');
+Route::post('/addLeague',  'LeagueController@addLeague');
+>>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c

@@ -5,8 +5,8 @@
   <div class="panel-heading">
     <h3 class="panel-title"><h4><b>Match Entry Form</b></h4></h3>
   </div>
-  <div class="panel-body">
-    <div style="border-radius:4px;background-color: #eeeeee;border:1px solid darkgrey; margin-left:2%;margin-right:2%; width:96%;" >
+  
+   
 	<form class="form" style="padding: 10px;" method="post" action="addMatch">
         {{ csrf_field() }}
 	  <div class="form-group">
@@ -14,9 +14,10 @@
 
 		  <div>
 			  <select id="selectOpt1" style="width: 30%" class="form-control competition_type" name="competition">
-                  @foreach($competitions as $competition)
-                      <option value="{{$competition->competition_name}}">{{$competition->competition_name}}</option>
-                  @endforeach
+                  
+                      <option value="League">League</option>
+                      <option value="Cup">Cup</option>
+                  
 			  </select>
 		  </div>
           <div class="form-group">
@@ -54,8 +55,8 @@
 	  </div>
 	  <button type="submit" class="btn btn-default">Submit</button>
 	</form>
-	</div>
-  </div>
+	
+  
 </div>
 <script type="text/javascript">
     $(document).ready(function () {

@@ -17,7 +17,8 @@ class MatchController extends Controller
         $match = new Match;
         if ($request->competition == 'League'){
             $competition_type_is = League::select('league_name')->where('id', $request->competition_name)->get();
-            $match->competition_type = $competition_type_is[0]['league_name'];
+            $w = $request->competition;
+            $match->competition_type = "App\League";
             $match->competition_id = $request->competition_name;
             $match->venue = $request->venue;
             $match->start_time = $request->start_time;
@@ -39,8 +40,8 @@ class MatchController extends Controller
     public function matchesPage()
     {
         $teams = Team::all();
-        $competitions = Competition::all();
-        return view('matchespage')->with('teams', $teams)->with('competitions', $competitions);
+        
+        return view('matchespage')->with('teams', $teams);
     }
     public function findLeagueTeamToDropdown(Request $request)
     {

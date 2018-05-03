@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BetOnMatch extends Model
+class BetsOnMatch extends Model
 {
     public function user(){
         return $this->belongsTo(User::class);

@@ -29,8 +29,9 @@ class User extends Authenticatable
     public function account(){
         return $this->belongsTo('App\Account','id','users_id');
     }
-    public function bets(){
-        return $this->hasMany('App\UserBet','id');
+    public function matchBets(){
+        return $this->hasMany('App\BetsOnMatch','user_id');
     }
+    
     
 }

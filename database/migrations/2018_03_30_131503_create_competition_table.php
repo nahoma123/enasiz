@@ -33,6 +33,7 @@ class CreateCompetitionTable extends Migration
             $table->integer('matches_played')->nullable();
             $table->timestamps();
         });
+        
         Schema::create('leagues', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nation');
