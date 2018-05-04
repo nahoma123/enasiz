@@ -16,7 +16,6 @@ class CreateAccountsTable extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->double('current_amount');
-            
             $table->integer('users_id');    
             $table->timestamps();
         });

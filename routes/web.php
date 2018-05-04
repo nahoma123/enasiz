@@ -51,3 +51,4 @@ Route::get('/user/activate/{user}', 'reportController@activate');
 Route::post('/updateMatch/{match_id}', 'MatchController@updateMatch');
 Route::get('/addLeague',  'LeagueController@addLeagueView');
 Route::post('/addLeague',  'LeagueController@addLeague');
+Route::get('/matchbet/settle/{matchBet}/{result}', 'MatchBetsController@settleBet');

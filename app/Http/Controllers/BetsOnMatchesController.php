@@ -89,7 +89,7 @@ class BetsOnMatchesController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
