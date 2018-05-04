@@ -165,7 +165,7 @@ section .section-title {
 
 </head><link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" id="bootstrap-css">
 <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
-<body style="height: 100%" '>
+<body style="height: 100%" >
 @yield('content')
 </body>
 </html>

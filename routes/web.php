@@ -46,7 +46,10 @@ Route::post('/addMatch', 'MatchController@addMatch');
 
 Route::get('/viewMatches',  'MatchController@viewMatches');
 Route::get('/deleteMatch/{match_id}', 'MatchController@deleteMatch');
+<<<<<<< HEAD
 Route::get('/updateMatch/{match_id}', 'MatchController@updateMatchView');
+=======
+>>>>>>> 90237255b50217160f6f7c5cd0437c61fb50c219
 Route::post('/updateMatch/{match_id}', 'MatchController@updateMatch');
 Route::get('/addLeague',  'LeagueController@addLeagueView');
 Route::post('/addLeague',  'LeagueController@addLeague');
@@ -59,7 +62,11 @@ Route::get('/user/deactivate/{user}', 'reportController@deactivate');
 Route::get('/user/activate/{user}', 'reportController@activate');
 Route::get('/addLeague',  'LeagueController@addLeagueView');
 Route::post('/addLeague',  'LeagueController@addLeague');
+<<<<<<< HEAD
 
 Route::get('/addTransferBet', 'TransferBetsController@addTransferBetView');
 Route::post('/addTransferBet', 'TransferBetsController@addTransferBet');
+=======
+Route::get('/matchbet/settle/{matchBet}/{result}', 'MatchBetsController@settleBet');
+>>>>>>> 90237255b50217160f6f7c5cd0437c61fb50c219
 

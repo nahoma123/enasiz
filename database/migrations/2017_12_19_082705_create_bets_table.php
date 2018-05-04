@@ -21,11 +21,11 @@ class CreateBetsTable extends Migration
             $table->double('winning_odds_away');
             $table->string('type_of_bet');
             $table->string('password')->nullable();
-            $table->dateTime('bet_created_at')->default(Carbon\Carbon::now());
             $table->integer('match_id'); // from matches table
             $table->integer('user_id'); // from users table
             $table->integer('away_bets'); // amount of people
             $table->integer('home_bets');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
         Schema::create('league_bets', function (Blueprint $table) {
