@@ -7,43 +7,24 @@ use Illuminate\Http\Request;
 
 class TransferBetsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function addTransferBetView()
     {
-        //
+        return view('addTransferBet');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function addTransferBet(Request $request)
     {
-        //
+        $transferBet = new TransferBet;
+        $transferBet->player_name = $request->player_name;
+        $transferBet->transfer_to = $request->transfer_to;
+        $transferBet->transfer_from = $request->transfer_from;
+        //$transferBet->profit_margin = $request->profit_margin;
+        $transferBet->minimum_wage = $request->minimum_wage;
+        $transferBet->maximum_wage = $request->maximum_wage;
+        $transferBet->save();
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\TransferBet  $transferBet
-     * @return \Illuminate\Http\Response
-     */
     public function show(TransferBet $transferBet)
     {
         //

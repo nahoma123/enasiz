@@ -77,6 +77,11 @@ class MatchController extends Controller
         return back();
 //        $match->homeTeam()->detach(Team::find($request->home_team));
     }
+    public function updateMatchView($match_id)
+    {
+        return view('updateMatch')->with('match_id', $match_id);
+    }
+
     public function updateMatch(Request $request, $id)
     {
         if ($request->competition == 'League'){

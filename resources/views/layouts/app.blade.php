@@ -240,11 +240,9 @@ body {
                                 </a>
                                 <li  style="margin-left:50px"class="dropdown">
                                     <a href="#" class="dropdown-toggle topnav_html" data-toggle="dropdown" role="button" aria-expanded="false">
-<<<<<<< HEAD
+
                                         <span class="headermenutxt text-bold">Manage Matches</span><span class=" "></span>
-=======
-                                        <span class="headermenutxt text-bold">Manage Matchs</span><span class=" "></span>
->>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c
+
                                     </a>
 
                                     <ul class="dropdown-menu pull-right " role="menu">
@@ -265,6 +263,7 @@ body {
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Bet</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Bet</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">View Bet</a></li>
+                                        <li><a class="" href="{{ url('/addTransferBet') }}">Add Transfer bet</a></li>
                                     </ul>
                                 </li>
                                 <li  class="dropdown">
@@ -288,10 +287,10 @@ body {
                                         <li><a class="" href="{{ url('/addLeague') }}">Add League</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Manage Teams in Leagues</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update League </a></li>
-<<<<<<< HEAD
+
                                         <li><a class="" href="{{ url('/addTeam') }}">Add team</a></li>
-=======
->>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c
+
+
 
 
                                     </ul>

@@ -3,84 +3,42 @@
 @section('content')
     <div class="panel panel-default" style="border:2px solid balck; margin-left:20%;margin-right:20%; width:60%;">
         <div class="panel-heading">
-            <h3 class="panel-title"><h4><b>Matches list</b></h4></h3>
+            <h3 class="panel-title"><h4><b>Transfer bet entry form</b></h4></h3>
         </div>
-        <div class="container">
-            <div class="row">
 
 
-                <div class="col-md-7">
-                <div class="col-md-12">
-                    <div class="table-responsive">
+        <form class="form" style="padding: 10px;" method="post" action="/addTransferBet">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <h4><label for="id">Player Name</label></h4>
 
-                        <table id="mytable" class="table table-bordred table-striped">
-
-                            <thead>
-                            <th>League</th>
-                            <th>Match</th>
-                            <th>Time</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            </thead>
-                            <tbody>
-
-                            @foreach($matches as $match)
-                                <tr>
-                                    <td>{{ $match->competition->league_name }}</td>
-
-                                    <td><h6>{{$match->hometeam[0]->team_thumbnail}}</h6><img src="/storage/upload/team_thumbnail/Capture.JPG" style="width: 40px; height: 40px; border-radius: 50%;">{{ $match->hometeam[0]->team_name }} vs {{ $match->awayteam[0]->team_name }}</td>
-                                    <td>{{ $match->start_time }}</td>
-                                    <td><a href="/updateMatch/{{$match->id}}"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                    <td><button><a href="/addBetOnMatch/{{$match->id}}">Add bet</a></button></td>
-
-                                </tr>
-                            @endforeach
-                            </tbody>
-
-                        </table>
-
-                        <div class="clearfix"></div>
-                        <ul class="pagination pull-right">
-                            <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                        </ul>
-
-                    </div>
-
+                <div>
+                    <input type="text" class="form-control" id="StartTime" name="player_name">
                 </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                <div class="form-group">
+                    <h4><label for="id">Transfer to</label></h4>
+                    <div>
+                        <input type="text" class="form-control" id="StartTime" name="transfer_to">
                     </div>
-                    <div class="modal-body">
 
-                        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-
+                    <div class="form-group">
+                        <h4><label for="homeTeam">Transfer from</label></h4>
+                        <input type="text" class="form-control" id="StartTime" name="transfer_from">
                     </div>
-                    <div class="modal-footer ">
 
-                        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-
-                        <a href="deleteMatch/{{$match->id}}"><button  type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button></a>
-                        
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                    <div class="form-group">
+                        <h4><label for="startTime">Minimum wage</label></h4>
+                        <input type="number" class="form-control" id="StartTime" name="minimum_wage">
                     </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
+                    <div class="form-group">
+                        <h4><label for="endTime">Maximum wage</label></h4>
+                        <input type="number" class="form-control" id="EndTime" name="maximum_wage">
+                    </div>
+                    <button type="submit" class="btn btn-default">Add Transfer Bet</button>
+        </form>
+
+
     </div>
-
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -176,5 +134,4 @@
             });
         });
     </script>
-
 @endsection
