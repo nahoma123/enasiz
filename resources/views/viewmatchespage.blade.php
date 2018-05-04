@@ -9,7 +9,11 @@
             <div class="row">
 
 
+<<<<<<< HEAD
+                <div class="col-md-7">
+=======
                 <div class="col-md-9">
+>>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c
                     <div class="table-responsive">
 
                         <table id="mytable" class="table table-bordred table-striped">
@@ -26,10 +30,18 @@
                             @foreach($matches as $match)
                                 <tr>
                                     <td>{{ $match->competition->league_name }}</td>
+<<<<<<< HEAD
+                                    <td><h6>{{$match->hometeam[0]->team_thumbnail}}</h6><img src="/storage/upload/team_thumbnail/Capture.JPG" style="width: 40px; height: 40px; border-radius: 50%;">{{ $match->hometeam[0]->team_name }} vs {{ $match->awayteam[0]->team_name }}</td>
+                                    <td>{{ $match->start_time }}</td>
+                                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                    <td><button><a href="/addBetOnMatch/{{$match->id}}">Add bet</a></button></td>
+=======
                                     <td>{{ $match->hometeam[0]->team_name }} vs {{ $match->awayteam[0]->team_name }}</td>
                                     <td>{{ $match->start_time }}</td>
                                     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
                                     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+>>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c
                                 </tr>
                             @endforeach
                             </tbody>
@@ -95,8 +107,12 @@
 
                     </div>
                     <div class="modal-footer ">
+<<<<<<< HEAD
+                        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+=======
                         <a href="deleteMatch/{{$match->id}}"><button  type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button></a>
                         
+>>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c
                         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
                     </div>
                 </div>

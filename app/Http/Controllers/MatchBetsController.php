@@ -5,26 +5,32 @@ use App\BetsOnMatch;
 
 use App\MatchBet;
 use Illuminate\Http\Request;
+
 use App\Account;
+
+use Auth;
 class MatchBetsController extends Controller
 {
     
-    public function addMatchBets(MatchBet $matchBet, Match $match)
+    public function addMatchBets(Request $request, $match_id)
     {
-        $matchBet = new matchBet;
-        //$matchBet->matchBet_id = $->id;
+        $matchBet = new MatchBet;
         $matchBet->minimum_wage = $request->minimum_wage;
         $matchBet->maximum_wage = $request->maximum_wage;
-        $matchBet->type_of_bet = $request->type_of_bet;
-
-        $matchBet->match_id = $match->id;
+        $matchBet->winning_odds_home = $request->winning_odds_home;
+        $matchBet->winning_odds_away = $request->winning_odds_away;
+        $matchBet->type_of_bet = 'Public';
+        $matchBet->bet_created_at = $request->bet_created_at;
+        $matchBet->match_id = $match_id;
         $matchBet->user_id = Auth::user()->id;
         $matchBet->save();
-
-
         return back();
     }
 
+    public function addBetOnMatchView($match_id)
+    {
+        return view('addBetOnMatch')->with('match_id', $match_id);
+    }
 
     public function index()
     {
