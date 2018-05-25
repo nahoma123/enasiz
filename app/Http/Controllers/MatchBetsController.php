@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 use App\BetsOnMatch;
 
+use App\Match;
 use App\MatchBet;
+use App\MatchesResult;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Account;
 
@@ -17,10 +20,12 @@ class MatchBetsController extends Controller
         $matchBet = new MatchBet;
         $matchBet->minimum_wage = $request->minimum_wage;
         $matchBet->maximum_wage = $request->maximum_wage;
-        $matchBet->winning_odds_home = $request->winning_odds_home;
-        $matchBet->winning_odds_away = $request->winning_odds_away;
+        $odds_for_home_team = ((($request->shots_on_goal_home) / 5) + (5 / ($request->shots_on_goal_away))) / 5;
+        $odds_for_away_team = ((($request->shots_on_goal_away) / 5) + (5 / ($request->shots_on_goal_home))) / 10;
+        $matchBet->winning_odds_home = $odds_for_home_team;
+        $matchBet->winning_odds_away = $odds_for_away_team;
+        $matchBet->draw_odds = ($odds_for_home_team + $odds_for_away_team) / 2;
         $matchBet->type_of_bet = 'Public';
-        $matchBet->bet_created_at = $request->bet_created_at;
         $matchBet->match_id = $match_id;
         $matchBet->user_id = Auth::user()->id;
         $matchBet->save();
@@ -91,69 +96,29 @@ class MatchBetsController extends Controller
             $matchBet->save();
             return 201;
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function addMatchResult(Request $request, $match_id)
     {
-        //
+        $matchResult = new MatchesResult;
+        $matchResult->home_team_score = $request->home_team_score;
+        $matchResult->away_team_score = $request->away_team_score;
+        $matchResult->possession = $request->possession;
+        $matchResult->home_team_shots_on_target = $request->home_team_shots_on_target;
+        $matchResult->away_team_shots_on_target = $request->away_team_shots_on_target;
+        $matchResult->home_team_corners = $request->home_team_corners;
+        $matchResult->away_team_corners = $request->away_team_corners;
+        $matchResult->home_team_fouls = $request->home_team_fouls;
+        $matchResult->away_team_fouls = $request->away_team_fouls;
+        $matchResult->match_id = $match_id;
+        DB::table('matches')
+            ->where('id', $match_id)
+            ->update(['match_status' => 'done',
+                ]);
+        $matchResult->save();
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function addResultOnMatchView($match_id)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\MatchBet  $matchBet
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MatchBet $matchBet)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\MatchBet  $matchBet
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(MatchBet $matchBet)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MatchBet  $matchBet
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, MatchBet $matchBet)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\MatchBet  $matchBet
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MatchBet $matchBet)
-    {
-        //
+        return view('addResultOnMatch')->with('match_id', $match_id);
     }
 }

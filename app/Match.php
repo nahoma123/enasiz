@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\MatchBet;
 
 class Match extends Model
 {
@@ -22,5 +23,18 @@ class Match extends Model
     }
     public function competition(){
         return $this->morphTo();
+    }
+    public function isBetted(Match $match){
+        $match_bets  = MatchBet::all();
+        $resp = false;
+        for($i = 0; $i < count($match_bets); $i++){
+            if($match_bets[$i]->match_id == $match->id){
+                $resp = true;
+                break;
+            }
+
+        }
+        return $resp;
+
     }
 }

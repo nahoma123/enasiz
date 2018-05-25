@@ -8,33 +8,6 @@ use App\MatchBet;
 
 class BetsOnMatchesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //todo: validation on the amount of money and the maximum amount of users goes here
@@ -77,50 +50,5 @@ class BetsOnMatchesController extends Controller
         
         
         return 200;
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\BetOnMatch  $betOnMatch
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BetOnMatch $betOnMatch)
-    {
-        //
-    }
-    
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\BetOnMatch  $betOnMatch
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BetOnMatch $betOnMatch)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\BetOnMatch  $betOnMatch
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BetOnMatch $betOnMatch)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\BetOnMatch  $betOnMatch
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BetOnMatch $betOnMatch)
-    {
-        //
     }
 }

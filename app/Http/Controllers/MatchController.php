@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Competition;
 use App\Cup;
 use App\Match;
+use App\MatchBet;
+use App\MatchesResult;
 use App\Team;
 use App\League;
 use Illuminate\Http\Request;
@@ -54,6 +56,13 @@ class MatchController extends Controller
         $data = League::all();
         return response()->json($data);
     }
+    public function findLeagueToDropdownTwo(Request $request)
+    {
+        //$data = League::select('team_name', 'id')->where('league_id', $request->id)->take(100)->get();
+        $data = League::select('league_name', 'id')->where('id', $request->id)->take(100)->get();
+        //$data = League::all();
+        return response()->json($data);
+    }
     public function findCupToDropdown(Request $request)
     {
         //$data = Team::select('team_name', 'id')->where('league_id', $request->id)->take(100)->get();
@@ -66,9 +75,17 @@ class MatchController extends Controller
         $matches = Match::all()->load('awayteam','hometeam','competition','bets');
         $teams = Team::all();
         $competitions = Competition::all();
-        //return $matches;
+        $match_bets = MatchBet::all();
+//        $mnbt = [];
+//        foreach ($matches as $match){
+//            $matches_betted_on = MatchBet::select('match_id')->where('match_id', $match->id)->get();
+//            $mnbt[] = $matches_betted_on;
+//            //return $match->id;
+//        }
+        //return $mnbt;
         return view('viewmatchespage')->with('matches', $matches)->with('competitions', $competitions)->with('teams', $teams);
     }
+
     public function deleteMatch($id)
     {
         DB::table('hometeam_team')->where('hometeam_id', '=', $id)->delete();
