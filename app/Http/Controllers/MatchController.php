@@ -9,11 +9,16 @@ use App\Team;
 use App\League;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Validation\Rule;
 class MatchController extends Controller
 {
     public function addMatch(Request $request)
     {
+        $v=  $request->validate([
+            'start_date'=>'required|DateToday',
+            'end_date'=>'required',
+            'venue'=>'required'
+        ]);
         $match = new Match;
         if ($request->competition == 'League'){
             $competition_type_is = League::select('league_name')->where('id', $request->competition_name)->get();
@@ -35,6 +40,11 @@ class MatchController extends Controller
     public function viewMatch(Match $match)
     {
         $match = Match::all()->load('awayteam','hometeam','competition','bets');
+        return $match;
+    }
+    public function getMatch($match)
+    {
+        $match =[ Match::find($match)->load('awayteam','hometeam','competition','bets')];
         return $match;
     }
     public function matchesPage()

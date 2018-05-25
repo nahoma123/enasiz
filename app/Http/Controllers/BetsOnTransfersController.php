@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\BetOnTransfer;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\BetOnTransfer;
 class BetsOnTransfersController extends Controller
 {
     /**
@@ -16,7 +16,17 @@ class BetsOnTransfersController extends Controller
     {
         //
     }
-
+    
+    
+    public function addTransferBet(Request $request){
+        $betOnTransfer= new BetOnTransfer;
+        $betOnTransfer->user_id=$request->user_id;
+        $betOnTransfer->transfer_bet_id=$request->transfer_bet_id;
+        $betOnTransfer->amount=$request->amount;
+        $betOnTransfer->profit_amount=0;
+        $betOnTransfer->bet_on=$request->bet_on;
+        $betOnTransfer->save();
+    }
     /**
      * Show the form for creating a new resource.
      *

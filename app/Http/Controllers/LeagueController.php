@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\League;
-=======
-use \App\League;
-
->>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c
 use Illuminate\Http\Request;
 
 class LeagueController extends Controller
@@ -28,13 +23,10 @@ class LeagueController extends Controller
         $league->number_of_teams = $request->number_of_teams;
         $league->save();
         return back();
-        }
-<<<<<<< HEAD
-=======
+    }
     public function showAllLeagues()
     {
         $leagues = League::all();
         return $leagues;
     }
->>>>>>> 299c5157c1631db250a3311a01b4e55a92e3230c
 }

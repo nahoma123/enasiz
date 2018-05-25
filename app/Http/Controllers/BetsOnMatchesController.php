@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use \App\User;
 use \App\BetsOnMatch;
 use Illuminate\Http\Request;
 use App\MatchBet;
@@ -41,7 +42,14 @@ class BetsOnMatchesController extends Controller
         
         
         $userBet =new BetsOnMatch;
-        $userBet->user_bet_id=$request->user_id;
+        if(is_null($request->user_id)){
+            $user=User::where('email',$request->email)->first();
+            $userBet->user_id=$user->id;   
+            // dd($user);    
+        }else{
+            $userBet->user_id=$request->user_id;
+   
+        }
         
         $userBet->match_bet_id =$request->match_bet_id;
         $userBet->team=$request->team;

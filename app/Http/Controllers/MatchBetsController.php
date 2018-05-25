@@ -34,7 +34,8 @@ class MatchBetsController extends Controller
 
     public function index()
     {
-        //
+        
+        
     }
     public function settleBet(MatchBet $matchBet,$result){
         if($matchBet->status == 0){
@@ -51,24 +52,34 @@ class MatchBetsController extends Controller
                     }
                     $account->save();
                     //todo: notification here to the user
-                    
+                    /*$headers=array('authorization:key='.'fadikfhuadhfn','Content-Type:application/json');
+                    $fields=array('to'=>'dfghiudkhfi',
+                        'notification'=>array("title"=>"ITS me","body"=>"duhhh")
+                        );
+                    $payload = json_encode($fields);
+                    $curl_session= curl_init();
+                    curl_setopt($curl_session, CURLOPT_URL, '');
                     // add to trarnsation
-                    
+                    */
                     $trans = new \App\Transaction;
                     if ($bet->team == 0){
+                        $bet->profit_made=$bet->bet_amount * $matchBet->winning_odds_home;
                         $trans->amount=$bet->bet_amount * $matchBet->winning_odds_home;
                     }else {
+                        $bet->profit_made=$bet->bet_amount * $matchBet->winning_odds_away;
                         $trans->amount=$bet->bet_amount * $matchBet->winning_odds_away;
                     }
                     $trans->account_id=$bet->user_id;
                     $trans->pay_mechanism='on play';
                     $trans->method='win match';
+                    
                     $trans->description='Bet win from a Match';
                     $trans->save();
                     
                 }else{ // if lose
                     $account =Account::find($bet->user_id);
                     $account->current_amount=$account->current_amount -$bet->bet_amount  ;
+                    $bet->profit_made=$bet->bet_amount * (-1);
                     $account->save();
                     //todo: notifications here to the user
                     
@@ -79,17 +90,17 @@ class MatchBetsController extends Controller
                     $trans->amount=$bet->bet_amount *(-1);
                     $trans->account_id=$bet->user_id;
                     $trans->pay_mechanism='on play';
-                    $trans->method='win match';
-                    $trans->description='Bet win from a Match';
+                    $trans->method='Lose match Bet';
+                    $trans->description='Bet Lose from a Match Bet';
                     $trans->save();
                 }
             }
             $matchBet->status=1;
             $matchBet->save();
         }
-        $matchBet->status=0;
-            $matchBet->save();
-            return 201;
+//        $matchBet->status=0;
+//            $matchBet->save();
+            return 200;
     }
     /**
      * Show the form for creating a new resource.

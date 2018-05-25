@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,3 +26,6 @@ Route::get('/matches/showall', 'MatchController@viewMatch');
 Route::get('/leagues/showall', 'LeagueController@showAllLeagues');
 Route::get('/cups/showall', 'CupController@showAllCups');
 Route::post('/matchbets/betOnMatch',"betsOnMatchesController@store");
+Route::post('/betsontransfer/add','BetsOnTransfersController@addTransferBet');
+Route::post('/register','Auth\RegisterController@registerApi');
+Route::get('/match/{match}',"MatchController@getMatch");

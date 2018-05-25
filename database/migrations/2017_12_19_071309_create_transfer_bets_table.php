@@ -18,7 +18,8 @@ class CreateTransferBetsTable extends Migration
             $table->string('player_name',100);
             $table->integer('transfer_to');
             $table->integer('transfer_from');
-            $table->double('profit_margin');
+            $table->double('winning_odds_infavor');
+            $table->double('winning_odds_against');
             $table->string('bet_status');
             $table->double("minimum_wage");
             $table->double("maximum_wage");

@@ -34,6 +34,7 @@ class CreateUserBetsTable extends Migration
             $table->string('status');
             $table->timestamps();
     });
+    
     Schema::create('bets_on_leagues', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('league_id');
@@ -50,10 +51,11 @@ class CreateUserBetsTable extends Migration
             $table->integer('user_id');
             $table->integer('transfer_bet_id');
             $table->double('amount');
-            $table->enum('bet_on',['against','favor']); ////
+            $table->tinyInteger('bet_on'); ////
             $table->double('profit_amount');
             $table->timestamps();
         });
+        
         Schema::create('bets_on_matches', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('match_bet_id');
