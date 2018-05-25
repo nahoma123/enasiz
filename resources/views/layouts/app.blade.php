@@ -264,6 +264,8 @@ body {
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Bet</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">View Bet</a></li>
                                         <li><a class="" href="{{ url('/addTransferBet') }}">Add Transfer bet</a></li>
+                                        <li><a class="" href="{{ url('/addCupBet') }}">Add Cup bet</a></li>
+                                        <li><a class="" href="{{ url('/addLeagueBet') }}">Add League bet</a></li>
                                     </ul>
                                 </li>
                                 <li  class="dropdown">
@@ -275,6 +277,7 @@ body {
                                         <li><a class="" href="{{ url('/register') }}">Add Staff</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Deactivate Staff</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Client Currency Management</a></li>
+                                        <li><a class="" href="{{ url('/recharge_account') }}">Recharge Account</a></li>
 
                                     </ul>
                                 </li>          
@@ -287,8 +290,8 @@ body {
                                         <li><a class="" href="{{ url('/addLeague') }}">Add League</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Manage Teams in Leagues</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update League </a></li>
-
                                         <li><a class="" href="{{ url('/addTeam') }}">Add team</a></li>
+                                        <li><a class="" href="{{ url('/addLeagueResult') }}">Add league result</a></li>
 
 
 
@@ -302,6 +305,8 @@ body {
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a class="" href="{{ url('/addCupResult') }}">Add cup result</a></li>
+                                        <li><a class="" href="{{ url('/addTeamOnCups') }}">Add team</a></li>
                                         <li><a class="" href="{{ url('/report/permission_list') }}">Permission Report</a></li>
                                         <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Detail and General Report</a></li>
                                     </ul>

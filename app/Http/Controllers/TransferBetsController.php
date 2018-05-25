@@ -19,7 +19,9 @@ class TransferBetsController extends Controller
         $transferBet->player_name = $request->player_name;
         $transferBet->transfer_to = $request->transfer_to;
         $transferBet->transfer_from = $request->transfer_from;
+
 //        $transferBet->profit_margin = $request->profit_margin;
+        $transferBet->transfer_odd = $request->transfer_odd;
         $transferBet->minimum_wage = $request->minimum_wage;
         $transferBet->maximum_wage = $request->maximum_wage;
         $transferBet->save();

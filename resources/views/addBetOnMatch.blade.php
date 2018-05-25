@@ -23,23 +23,18 @@
                             <input style="width: 40%" type="number" name="maximum_wage" class="form-control" placeholder="Enter the minimum wage">
                         </div>
 
-                        <h4><label for="id">Home team winning odd</label></h4>
+                        <h4><label for="id">Home team total shots on goal in the last five matches</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="winning_odds_home" class="form-control" placeholder="Enter the home odds">
+                            <input style="width: 40%" type="number" name="shots_on_goal_home" class="form-control" placeholder="Enter number of shots">
                         </div>
 
-                        <h4><label for="id">Away team winning odd</label></h4>
+                        <h4><label for="id">Away team total shots on goal in the last five matches</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="winning_odds_away" class="form-control" placeholder="Enter the away odds">
+                            <input style="width: 40%" type="number" name="shots_on_goal_away" class="form-control" placeholder="Enter number of shots">
                         </div>
-
-                        <div class="form-group">
-                            <h4><label for="id">Bet Created at</label></h4>
-                            <div>
-                                <input style="width: 40%" type="date" name="bet_created_at" class="form-control">
-                            </div><br>
+                        <br>
 
                             <button type="submit" class="btn btn-success">Add Bet</button>
                 </form>

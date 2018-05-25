@@ -4,82 +4,38 @@ namespace App\Http\Controllers;
 
 use App\CupBet;
 use Illuminate\Http\Request;
+use App\Cup;
+use Illuminate\Support\Facades\DB;
+use App\Team;
 
 class CupBetsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function addCupBetView()
     {
-        //
+        $cups = Cup::orderBy('name')->get();
+        return view('viewCupForBets')->with('cups', $cups);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function addBetOnACupView($cup_id)
     {
-        //
+        $team_ids = DB::table('cup_team')->select('team_id')->where('cup_id', $cup_id)->get();
+        //print_r($team_ids);
+        $y = $team_ids;
+        $f = [];
+        foreach ($y as $x){
+            $f[]=Team::find($x->team_id);
+        }
+        return view('addBetOnCup')->with('cup_id', $cup_id)->with('teams', $f);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function addBetOnACup(Request $request, $cup_id)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\CupBet  $cupBet
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CupBet $cupBet)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\CupBet  $cupBet
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CupBet $cupBet)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CupBet  $cupBet
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, CupBet $cupBet)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\CupBet  $cupBet
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CupBet $cupBet)
-    {
-        //
+        $cup_bet = new CupBet;
+        $cup_bet->minimum_wage = $request->minimum_wage;
+        $cup_bet->maximum_wage = $request->maximum_wage;
+        $cup_bet->cup_odd = $request->cup_odd;
+        $cup_bet->cups_id = $cup_id;
+        //$team = Team::select('id')->where('team_name', $request->team)->get();
+        $cup_bet->team_id = $request->team;
+        $cup_bet->save();
+        return back();
     }
 }

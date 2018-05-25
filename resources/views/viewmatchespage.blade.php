@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="panel panel-default" style="border:2px solid balck; margin-left:20%;margin-right:20%; width:60%;">
+    <div class="panel panel-default" style="border:2px solid balck; margin-left:5%; width:85%;">
         <div class="panel-heading">
             <h3 class="panel-title"><h4><b>Matches list</b></h4></h3>
         </div>
-        <div class="container">
+        <div class="container" style="margin-left: -30px">
             <div class="row">
 
 
-                <div class="col-md-7">
+                <div class="col-md-12">
                 <div class="col-md-12">
                     <div class="table-responsive">
 
@@ -17,7 +17,7 @@
 
                             <thead>
                             <th>League</th>
-                            <th>Match</th>
+                            <th style="text-align: center">Match</th>
                             <th>Time</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -25,16 +25,24 @@
                             <tbody>
 
                             @foreach($matches as $match)
-                                <tr>
+                                @if($match->match_status != 'done')
+                                <tr >
                                     <td>{{ $match->competition->league_name }}</td>
 
-                                    <td><h6>{{$match->hometeam[0]->team_thumbnail}}</h6><img src="/storage/upload/team_thumbnail/Capture.JPG" style="width: 40px; height: 40px; border-radius: 50%;">{{ $match->hometeam[0]->team_name }} vs {{ $match->awayteam[0]->team_name }}</td>
+                                    <td><img src="/storage/upload/team_thumbnail/{{$match->hometeam[0]->team_thumbnail}}" style="width: 40px; height: 40px; border-radius: 50%;"> <span style="font-size: 25px">{{ $match->hometeam[0]->team_name }}</span>
+                                        vs
+                                       <span style="font-size: 25px"> {{ $match->awayteam[0]->team_name }}</span> <img src="/storage/upload/team_thumbnail/{{$match->awayteam[0]->team_thumbnail}}" style="width: 40px; height: 40px; border-radius: 50%;"></td>
                                     <td>{{ $match->start_time }}</td>
                                     <td><a href="/updateMatch/{{$match->id}}"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                                     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                    <td><button><a href="/addBetOnMatch/{{$match->id}}">Add bet</a></button></td>
+
+                                    @if(!($match->isBetted($match)))
+                                        <td><button><a href="/addBetOnMatch/{{$match->id}}">Add bet</a></button></td>
+                                    @endif
+                                    <td><button><a href="/addResultOnMatch/{{$match->id}}">Add result</a></button></td>
 
                                 </tr>
+                                @endif
                             @endforeach
                             </tbody>
 

@@ -2,84 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\League;
 use App\LeagueBet;
+use App\Team;
 use Illuminate\Http\Request;
 
 class LeagueBetsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function addLeagueBetView()
     {
-        //
+        $leagues = League::orderBy('league_name')->get();
+        return view('viewLeagueForBets')->with('leagues', $leagues);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function addBetOnALeagueView($league_id)
     {
-        //
+        //$team_ids = DB::table('team')->select('team_id')->where('cup_id', $cup_id)->get();
+        $teams = Team::select('team_name', 'id')->where('league_id', $league_id)->get();
+        return view('addBetOnLeague')->with('league_id', $league_id)->with('teams', $teams);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function addBetOnALeague(Request $request, $league_id)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\LeagueBet  $leagueBet
-     * @return \Illuminate\Http\Response
-     */
-    public function show(LeagueBet $leagueBet)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\LeagueBet  $leagueBet
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(LeagueBet $leagueBet)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\LeagueBet  $leagueBet
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, LeagueBet $leagueBet)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\LeagueBet  $leagueBet
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(LeagueBet $leagueBet)
-    {
-        //
+        $league_bet = new LeagueBet;
+        $league_bet->minimum_wage = $request->minimum_wage;
+        $league_bet->maximum_wage = $request->maximum_wage;
+        $league_bet->league_odd = $request->league_odd;
+        $league_bet->league_id = $league_id;
+        $league_bet->team_id = $request->team;
+        $league_bet->save();
+        return back();
     }
 }

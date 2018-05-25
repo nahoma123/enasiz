@@ -27,6 +27,11 @@
                     </div>
 
                     <div class="form-group">
+                        <h4><label for="startTime">Transfer odd</label></h4>
+                        <input type="text" class="form-control" id="StartTime" name="transfer_odd">
+                    </div>
+
+                    <div class="form-group">
                         <h4><label for="startTime">Minimum wage</label></h4>
                         <input type="number" class="form-control" id="StartTime" name="minimum_wage">
                     </div>
