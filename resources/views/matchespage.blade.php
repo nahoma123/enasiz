@@ -43,15 +43,15 @@
 
 	  <div class="form-group">
 	    <h4><label for="startTime">Start Time</label></h4>
-	    <input type="datetime-local" class="form-control" id="StartTime" name="start_time">
+	    <input type="datetime-local" class="form-control" id="StartTime" name="start_time" required>
 	  </div>
 	  <div class="form-group">
 	    <h4><label for="endTime">End Time</label></h4>
-	    <input type="datetime-local" class="form-control" id="EndTime" name="end_time">
+	    <input type="datetime-local" class="form-control" id="EndTime" name="end_time" required>
 	  </div>
 	  <div class="form-group">
 	    <h4><label for="venue">Venue</label></h4>
-	    <input type="text" name="venue" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue">
+	    <input type="text" name="venue" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue" required>
 	  </div>
 	  <button type="submit" class="btn btn-default">Submit</button>
 	</form>

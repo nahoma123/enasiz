@@ -247,8 +247,6 @@ body {
 
                                     <ul class="dropdown-menu pull-right " role="menu">
                                         <li><a class="" href="{{ url('/matches') }}">Add Matches</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Matches</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Matches</a></li>
                                         <li><a class="" href="{{ url('/viewMatches') }}">View Matches</a></li>
 
                                     </ul>
@@ -259,10 +257,6 @@ body {
                                     </a>
 
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a class="" href="{{ url('/report/permission_list') }}">Add bet</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Delete Bet</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update Bet</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">View Bet</a></li>
                                         <li><a class="" href="{{ url('/addTransferBet') }}">Add Transfer bet</a></li>
                                         <li><a class="" href="{{ url('/addCupBet') }}">Add Cup bet</a></li>
                                         <li><a class="" href="{{ url('/addLeagueBet') }}">Add League bet</a></li>
@@ -275,8 +269,6 @@ body {
 
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a class="" href="{{ url('/register') }}">Add Staff</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Deactivate Staff</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Client Currency Management</a></li>
                                         <li><a class="" href="{{ url('/recharge_account') }}">Recharge Account</a></li>
 
                                     </ul>
@@ -288,8 +280,6 @@ body {
 
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a class="" href="{{ url('/addLeague') }}">Add League</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Manage Teams in Leagues</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Update League </a></li>
                                         <li><a class="" href="{{ url('/addTeam') }}">Add team</a></li>
                                         <li><a class="" href="{{ url('/addLeagueResult') }}">Add league result</a></li>
 
@@ -307,8 +297,6 @@ body {
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a class="" href="{{ url('/addCupResult') }}">Add cup result</a></li>
                                         <li><a class="" href="{{ url('/addTeamOnCups') }}">Add team</a></li>
-                                        <li><a class="" href="{{ url('/report/permission_list') }}">Permission Report</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Detail and General Report</a></li>
                                     </ul>
                                 </li>
                                 <li  class="dropdown">
@@ -360,9 +348,19 @@ body {
 
                                     </div>
                                     </nav>
+                                        @if(Session::has('flash_message'))
+                                            <div style="text-align: center" class="alert alert-success">{{Session::get('flash_message')}}</div>
+                                        @endif
+
+                                        @if(Session::has('flash_message_error'))
+                                            <div style="text-align: center" class="alert alert-danger">{{Session::get('flash_message_error')}}</div>
+                                        @endif
 
                                     @yield('content')
                                     </div>
+                                            <script>
+                                                $('div.alert').delay(3000).slideUp(300);
+                                            </script>
 
                                     <!-- Scripts -->
                                     <script src="{{ asset('js/app.js') }}"></script>

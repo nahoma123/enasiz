@@ -7,62 +7,61 @@
         </div>
         <div class="panel-body">
             <div style="border-radius:4px;background-color: #eeeeee;border:1px solid darkgrey; margin-left:2%;margin-right:2%; width:96%;" >
-                <h4>{{$match_id}}</h4>
                 <form class="form" style="padding: 10px;" method="post" action="{{$match_id}}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <h4><label for="id">Home team score</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="home_team_score" class="form-control" placeholder="Enter the minimum wage">
+                            <input style="width: 40%" type="number" min="0" name="home_team_score" class="form-control" placeholder="Enter the minimum wage" required>
                         </div>
 
                         <h4><label for="id">Away team score</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="away_team_score" class="form-control" placeholder="Enter the minimum wage">
+                            <input style="width: 40%" type="number" min="0" name="away_team_score" class="form-control" placeholder="Enter the minimum wage" required>
                         </div>
 
                         <h4><label for="id">Home team possession</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="possession" class="form-control" placeholder="Enter the home odds">
+                            <input style="width: 40%" type="number" min="0" name="possession" class="form-control" placeholder="Enter the home odds" required>
                         </div>
 
                         <h4><label for="id">Home team shots on target</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="home_team_shots_on_target" class="form-control" placeholder="Enter the minimum wage">
+                            <input style="width: 40%" type="number" min="0" name="home_team_shots_on_target" class="form-control" placeholder="Enter the minimum wage" required>
                         </div>
 
                         <h4><label for="id">Away team shots on target</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="away_team_shots_on_target" class="form-control" placeholder="Enter the away odds">
+                            <input style="width: 40%" type="number" min="0" name="away_team_shots_on_target" class="form-control" placeholder="Enter the away odds" required>
                         </div>
 
                         <h4><label for="id">Home team corners</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="home_team_corners" class="form-control" placeholder="Enter the minimum wage">
+                            <input style="width: 40%" type="number" min="0" name="home_team_corners" class="form-control" placeholder="Enter the minimum wage" required>
                         </div>
 
                         <h4><label for="id">Away team corners</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="away_team_corners" class="form-control" placeholder="Enter the away odds">
+                            <input style="width: 40%" type="number" min="0" name="away_team_corners" class="form-control" placeholder="Enter the away odds" required>
                         </div>
 
                         <h4><label for="id">Home team fouls</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="home_team_fouls" class="form-control" placeholder="Enter the minimum wage">
+                            <input style="width: 40%" type="number" min="0" name="home_team_fouls" class="form-control" placeholder="Enter the minimum wage" required>
                         </div>
 
                         <h4><label for="id">Away team fouls</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="number" name="away_team_fouls" class="form-control" placeholder="Enter the away odds">
+                            <input style="width: 40%" type="number" min="0" name="away_team_fouls" class="form-control" placeholder="Enter the away odds" required>
                         </div>
                         <br>
 

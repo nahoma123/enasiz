@@ -13,31 +13,31 @@
                 <h4><label for="id">Player Name</label></h4>
 
                 <div>
-                    <input type="text" class="form-control" id="StartTime" name="player_name">
+                    <input type="text" class="form-control" id="StartTime" name="player_name" required>
                 </div>
                 <div class="form-group">
                     <h4><label for="id">Transfer to</label></h4>
                     <div>
-                        <input type="text" class="form-control" id="StartTime" name="transfer_to">
+                        <input type="text" class="form-control" id="StartTime" name="transfer_to" required>
                     </div>
 
                     <div class="form-group">
                         <h4><label for="homeTeam">Transfer from</label></h4>
-                        <input type="text" class="form-control" id="StartTime" name="transfer_from">
+                        <input type="text" class="form-control" id="StartTime" name="transfer_from" required>
                     </div>
 
                     <div class="form-group">
                         <h4><label for="startTime">Transfer odd</label></h4>
-                        <input type="text" class="form-control" id="StartTime" name="transfer_odd">
+                        <input type="text" min="0" class="form-control" id="StartTime" name="transfer_odd" required>
                     </div>
 
                     <div class="form-group">
                         <h4><label for="startTime">Minimum wage</label></h4>
-                        <input type="number" class="form-control" id="StartTime" name="minimum_wage">
+                        <input type="number" min="0" class="form-control" id="StartTime" name="minimum_wage" required>
                     </div>
                     <div class="form-group">
                         <h4><label for="endTime">Maximum wage</label></h4>
-                        <input type="number" class="form-control" id="EndTime" name="maximum_wage">
+                        <input type="number" min="0" class="form-control" id="EndTime" name="maximum_wage" required>
                     </div>
                     <button type="submit" class="btn btn-default">Add Transfer Bet</button>
         </form>

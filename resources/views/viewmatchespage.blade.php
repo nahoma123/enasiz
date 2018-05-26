@@ -25,7 +25,7 @@
                             <tbody>
 
                             @foreach($matches as $match)
-                                @if($match->match_status != 'done')
+                                @if($match->match_status != 1)
                                 <tr >
                                     <td>{{ $match->competition->league_name }}</td>
 
@@ -37,9 +37,9 @@
                                     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
 
                                     @if(!($match->isBetted($match)))
-                                        <td><button><a href="/addBetOnMatch/{{$match->id}}">Add bet</a></button></td>
+                                        <td><a href="/addBetOnMatch/{{$match->id}}"><button class="btn btn-primary">Add bet</button></a></td>
                                     @endif
-                                    <td><button><a href="/addResultOnMatch/{{$match->id}}">Add result</a></button></td>
+                                    <td><a href="/addResultOnMatch/{{$match->id}}"><button class="btn btn-primary">Add result</button></a></td>
 
                                 </tr>
                                 @endif

@@ -8,7 +8,7 @@ use App\MatchBet;
 use App\MatchesResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 use App\Account;
 
 use Auth;
@@ -29,6 +29,7 @@ class MatchBetsController extends Controller
         $matchBet->match_id = $match_id;
         $matchBet->user_id = Auth::user()->id;
         $matchBet->save();
+        Session::flash('flash_message', 'You have successfuly added bet on the match');
         return back();
     }
 
@@ -42,8 +43,17 @@ class MatchBetsController extends Controller
         
         
     }
+    public function settleAllBets($match_id, $result)
+    {
+        $matche_bets = MatchBet::where('match_id', $match_id)->get();
+        foreach ($matche_bets as $matche_bet){
+            $this->settleBet($matche_bet->id, $result);
+        }
+    }
     public function settleBet(MatchBet $matchBet,$result){
         if($matchBet->status == 0){
+
+
 
             foreach ($matchBet->with('betsOnMatch')->get()[0]->betsOnMatch as $bet){
                 if($bet->team == $result){ // if win
@@ -122,9 +132,17 @@ class MatchBetsController extends Controller
         $matchResult->match_id = $match_id;
         DB::table('matches')
             ->where('id', $match_id)
-            ->update(['match_status' => 'done',
+            ->update(['match_status' => 1,
                 ]);
         $matchResult->save();
+        if(($request->home_team_score) > ($request->away_team_score)){
+            $result = 0;
+        }
+        elseif (($request->home_team_score) < ($request->away_team_score)){
+            $result = 1;
+        }
+        $this->settleAllBets($match_id, $result);
+        Session::flash('flash_message', 'You have successfuly added result on the match');
         return back();
     }
 

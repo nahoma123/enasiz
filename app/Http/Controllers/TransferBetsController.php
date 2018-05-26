@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\TransferBet;
 use Illuminate\Http\Request;
 use App\Account;
+use Illuminate\Support\Facades\Session;
 
 class TransferBetsController extends Controller
 {
@@ -25,6 +26,7 @@ class TransferBetsController extends Controller
         $transferBet->minimum_wage = $request->minimum_wage;
         $transferBet->maximum_wage = $request->maximum_wage;
         $transferBet->save();
+        Session::flash('flash_message', 'You have successfuly added transfer bet');
         return back(); 
     }
 

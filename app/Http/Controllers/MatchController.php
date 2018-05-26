@@ -12,17 +12,13 @@ use App\League;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Session;
 class MatchController extends Controller
 {
     public function addMatch(Request $request)
     {
-        $v=  $request->validate([
-            'start_date'=>'required|DateToday',
-            'end_date'=>'required',
-            'venue'=>'required'
-        ]);
         $match = new Match;
-        if ($request->competition == 'League'){
+        if (($request->competition) == 'League'){
             $competition_type_is = League::select('league_name')->where('id', $request->competition_name)->get();
             $w = $request->competition;
             $match->competition_type = "App\League";
@@ -30,11 +26,20 @@ class MatchController extends Controller
             $match->venue = $request->venue;
             $match->start_time = $request->start_time;
             $match->end_time = $request->end_time;
-            $match->save();
 //            $home_team_id = Team::select('id')->where('id', $request->home_team)->get();;
 //            $away_team_id = Team::select('id')->where('id', $request->away_team)->get();;
+            if(($request->home_team) == ($request->away_team)){
+                Session::flash('flash_message_error', 'Home team and away team can not be the same');
+                return back();
+            }
+            if(($request->start_time) >= ($request->end_time)){
+                Session::flash('flash_message_error', 'End time can not be less than start time');
+                return back();
+            }
+            $match->save();
             $match->homeTeam()->save(Team::find($request->home_team));
             $match->awayTeam()->save(Team::find($request->away_team));
+            Session::flash('flash_message', 'You have successfuly added the match');
             return back();
         }
     }
@@ -101,6 +106,7 @@ class MatchController extends Controller
         DB::table('hometeam_team')->where('hometeam_id', '=', $id)->delete();
         DB::table('awayteam_team')->where('awayteam_id', '=', $id)->delete();
         DB::table('matches')->where('id', '=', $id)->delete();
+        Session::flash('flash_message', 'You have successfuly deleted the match');
         return back();
 //        $match->homeTeam()->detach(Team::find($request->home_team));
     }

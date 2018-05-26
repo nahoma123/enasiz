@@ -6,6 +6,7 @@ use \App\User;
 use \App\BetsOnMatch;
 use Illuminate\Http\Request;
 use App\MatchBet;
+use Illuminate\Support\Facades\Session;
 
 class BetsOnMatchesController extends Controller
 {
