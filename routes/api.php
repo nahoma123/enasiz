@@ -29,3 +29,7 @@ Route::post('/matchbets/betOnMatch',"betsOnMatchesController@store");
 Route::post('/betsontransfer/add','BetsOnTransfersController@addTransferBet');
 Route::post('/register','Auth\RegisterController@registerApi');
 Route::get('/match/{match}',"MatchController@getMatch");
+Route::post('/checkMatchBetExists',"MatchBetsController@checkBetExists");
+Route::post('/placeprivatebet','BetsOnMatchesController@joinPrivate');
+Route::post('/getBalance','AccountController@getCurrentBalance');
+Route::post('/createPrivate','MatchBetsController@addPrivateBet');

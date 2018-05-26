@@ -8,8 +8,10 @@ use App\MatchBet;
 use App\MatchesResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\User;
 use App\Account;
+use Illuminate\Support\Facades\Hash;
+
 
 use Auth;
 class MatchBetsController extends Controller
@@ -30,6 +32,14 @@ class MatchBetsController extends Controller
         $matchBet->user_id = Auth::user()->id;
         $matchBet->save();
         return back();
+    }
+    public function checkBetExists(Request $request){
+        $matchBet=MatchBet::find($request->betId);
+        if(is_null($matchBet)){
+            return 501;
+        }else{
+            return 200;
+        }
     }
 
     public function addBetOnMatchView($match_id)
@@ -131,5 +141,27 @@ class MatchBetsController extends Controller
     public function addResultOnMatchView($match_id)
     {
         return view('addResultOnMatch')->with('match_id', $match_id);
+    }
+    public function addPrivateBet(Request $request){
+        $user= User::where("email",$request->email)->first();
+        $user_id=$user->id;
+
+        $matchBet = new MatchBet;
+        $matchBet->type_of_bet="Private";
+        $matchBet->password=Hash::make($request->password);
+        $matchBet->minimum_wage=$request->minimum_wage;
+        $matchBet->maximum_wage=$request->maximum_wage;
+        $matchBet->away_bets=0;
+        $matchBet->home_bets=0;
+        $matchBet->away_bets_amount=0;
+        $matchBet->home_bets_amount=0;
+        $matchBet->winning_odds_away=0;
+        $matchBet->winning_odds_home=0;
+        $matchBet->status=0;
+        $matchBet->match_id=$request->match_id;
+        $matchBet->user_id=$user_id;
+
+        $matchBet->save();
+        return $matchBet->id;
     }
 }

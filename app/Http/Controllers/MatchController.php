@@ -16,11 +16,13 @@ class MatchController extends Controller
 {
     public function addMatch(Request $request)
     {
+                    
         $v=  $request->validate([
             'start_date'=>'required|DateToday',
             'end_date'=>'required',
             'venue'=>'required'
         ]);
+
         $match = new Match;
         if ($request->competition == 'League'){
             $competition_type_is = League::select('league_name')->where('id', $request->competition_name)->get();
