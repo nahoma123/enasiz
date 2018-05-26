@@ -19,6 +19,7 @@ class CreateBetsTable extends Migration
             $table->double('maximum_wage');
             $table->double('winning_odds_home');
             $table->double('winning_odds_away');
+            $table->float('draw_odds');
             $table->string('type_of_bet');
             $table->string('password')->nullable();
             $table->integer('match_id'); // from matches table
@@ -42,6 +43,7 @@ class CreateBetsTable extends Migration
             $table->double('minimum_wage');
             $table->double('maximum_wage');
             $table->double('created_at');
+            $table->double('cup_odd');
             $table->integer('maximum_number_of_wagers');
             $table->string('bet_status');
             $table->integer('cups_id');

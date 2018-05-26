@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\League;
 use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TeamController extends Controller
 {
@@ -24,8 +25,10 @@ class TeamController extends Controller
             $request->team_thumbnail->storeAs('public/upload/team_thumbnail', $filename);
             $team->team_thumbnail = $filename;
             $team->save();
+            Session::flash('flash_message', 'You have successfuly added the team');
             return back();
         }
+        Session::flash('flash_message', 'You have successfuly added the team');
         return back();
     }
 

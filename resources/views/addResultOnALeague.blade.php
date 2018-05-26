@@ -7,7 +7,6 @@
         </div>
         <div class="panel-body">
             <div style="border-radius:4px;background-color: #eeeeee;border:1px solid darkgrey; margin-left:2%;margin-right:2%; width:96%;" >
-                <h4>{{$league_id}}</h4>
                 <form class="form" style="padding: 10px;" method="post" action="/addResultOnALeague/{{$league_id}}">
                     {{ csrf_field() }}
                     <div class="form-group">

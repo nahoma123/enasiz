@@ -17,7 +17,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button class="button" style="float:right; margin-top: -4%"><a href="">Add bet</a></button>
+                <a href=""><button class="btn btn-primary" style="float:right; margin-top: -4%">Add bet</button></a>
 
             </div>
             <script type="text/javascript">

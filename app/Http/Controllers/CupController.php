@@ -8,6 +8,7 @@ use App\Team;
 use App\CupTeam;
 use Illuminate\Support\Facades\DB;
 use App\CupResult;
+use Illuminate\Support\Facades\Session;
 
 class CupController extends Controller
 {
@@ -27,6 +28,7 @@ class CupController extends Controller
         //$cup_team = new CupTeam;
         DB::table('cup_team')->insert(['cup_id' => $cup_id, 'team_id' => $request->team]);
         //$cup_team->save();
+        Session::flash('flash_message', 'You have successfuly added team on cup');
         return back();
     }
     public function viewCups()
@@ -51,6 +53,7 @@ class CupController extends Controller
         $cup_result->cup_id = $cup_id;
         $cup_result->winner = $request->winner;
         $cup_result->save();
+        Session::flash('flash_message', 'You have successfuly added result on cup');
         return back();
     }
     

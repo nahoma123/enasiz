@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\BetOnTransfer;
+use Illuminate\Support\Facades\Session;
 class BetsOnTransfersController extends Controller
 {
     /**

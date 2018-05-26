@@ -6,6 +6,7 @@ use App\League;
 use App\LeagueResult;
 use Illuminate\Http\Request;
 use App\Team;
+use Illuminate\Support\Facades\Session;
 
 class LeagueController extends Controller
 {
@@ -23,7 +24,12 @@ class LeagueController extends Controller
         $league->end_time = $request->end_time;
         $league->description = $request->description;
         $league->number_of_teams = $request->number_of_teams;
+        if(($request->start_time) >= ($request->end_time)){
+            Session::flash('flash_message_error', 'End time can not be less than start time');
+            return back();
+        }
         $league->save();
+        Session::flash('flash_message', 'You have successfuly added the league');
         return back();
     }
 
@@ -58,6 +64,7 @@ class LeagueController extends Controller
         $league_result->fouth_team = $fourth_team[0]['id'];
         $league_result->fifth_team = $fifth_team[0]['id'];
         $league_result->save();
+        Session::flash('flash_message', 'You have successfuly added result on the league');
         return back();
     }
 }

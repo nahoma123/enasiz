@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BetOnLeague;
 use App\League;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BetsOnLeaguesController extends Controller
 {

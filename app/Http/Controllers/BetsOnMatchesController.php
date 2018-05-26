@@ -7,6 +7,8 @@ use \App\BetsOnMatch;
 use Illuminate\Http\Request;
 use App\MatchBet;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 class BetsOnMatchesController extends Controller
 {
     public function store(Request $request)

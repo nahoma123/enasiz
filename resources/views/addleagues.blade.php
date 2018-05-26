@@ -13,29 +13,29 @@
                         <h4><label for="id">Nation</label></h4>
 
                         <div>
-                            <input style="width: 40%" type="text" name="nation" class="form-control" placeholder="Enter the nation of the league">
+                            <input  style="width: 40%" type="text" name="nation" class="form-control" placeholder="Enter the nation of the league" required>
                         </div>
                         <div class="form-group">
                             <h4><label for="id">League Name</label></h4>
                             <div>
-                                <input style="width: 40%" type="text" name="league_name" class="form-control" placeholder="Enter the name of the league">
+                                <input  style="width: 40%" type="text" name="league_name" class="form-control" placeholder="Enter the name of the league" required>
                             </div>
 
                             <div class="form-group">
                                 <h4><label for="startTime">Start Time</label></h4>
-                                <input style="width: 40%" type="datetime-local" class="form-control" id="StartTime" name="start_time">
+                                <input style="width: 40%" type="datetime-local" class="form-control" id="StartTime" name="start_time" required>
                             </div>
                             <div class="form-group">
                                 <h4><label for="endTime">End Time</label></h4>
-                                <input style="width: 40%" type="datetime-local" class="form-control" id="EndTime" name="end_time">
+                                <input style="width: 40%" type="datetime-local" class="form-control" id="EndTime" name="end_time" required>
                             </div>
                             <div class="form-group">
                                 <h4><label for="venue">Description</label></h4>
-                                <input style="width: 40%" type="text" name="description" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue">
+                                <input style="width: 40%" type="text" name="description" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue" required>
                             </div>
                             <div class="form-group">
                                 <h4><label for="venue">Number of teams</label></h4>
-                                <input style="width: 40%" type="number" name="number_of_teams" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue">
+                                <input style="width: 40%" type="number" min="0" name="number_of_teams" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue" required>
                             </div>
                             <button type="submit" class="btn btn-success">Add</button>
                 </form>

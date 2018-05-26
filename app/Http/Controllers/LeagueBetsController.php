@@ -6,6 +6,7 @@ use App\League;
 use App\LeagueBet;
 use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LeagueBetsController extends Controller
 {
@@ -25,10 +26,12 @@ class LeagueBetsController extends Controller
         $league_bet = new LeagueBet;
         $league_bet->minimum_wage = $request->minimum_wage;
         $league_bet->maximum_wage = $request->maximum_wage;
-        $league_bet->league_odd = $request->league_odd;
+        $league_odd = ($request->league_odd) / 10;
+        $league_bet->league_odd = $league_odd;
         $league_bet->league_id = $league_id;
         $league_bet->team_id = $request->team;
         $league_bet->save();
+        Session::flash('flash_message', 'You have successfuly added bet on league');
         return back();
     }
 }

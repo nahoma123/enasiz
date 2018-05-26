@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BetsOnCup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BetsOnCupsController extends Controller
 {
@@ -18,6 +19,7 @@ class BetsOnCupsController extends Controller
         $betsOnCup->fifth_team = $request->fifth_team;
         $betsOnCup->profit_made = $request->profit_made;
         $betsOnCup->save();
+        Session::flash('flash_message', 'You have successfuly added bet on cup');
         return back();
     }
 

@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <h4><label for="id">Team Name</label></h4>
                             <div>
-                                <input style="width: 40%" type="text" name="team_name" class="form-control" placeholder="Enter the name of the league">
+                                <input style="width: 40%" type="text" name="team_name" class="form-control" placeholder="Enter the name of the league" required>
                             </div>
 
                             <div class="form-group">

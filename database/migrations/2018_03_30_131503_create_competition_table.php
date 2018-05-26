@@ -59,6 +59,22 @@ class CreateCompetitionTable extends Migration
             $table->integer('match_id'); // key to match tables
             $table->timestamps();
         });
+        Schema::create('league_results', function (Blueprint $table) {
+            $table->increments('id');
+            $table->Integer('league_id');
+            $table->Integer('first_team');
+            $table->Integer('second_team');
+            $table->Integer('third_team');
+            $table->Integer('fouth_team');
+            $table->Integer('fifth_team');
+            $table->timestamps();
+        });
+        Schema::create('cup_results', function (Blueprint $table) {
+            $table->increments('id');
+            $table->Integer('cup_id');
+            $table->string('winner');
+            $table->timestamps();
+        });
         Schema::create('cup_team', function (Blueprint $table){
            $table->integer('cup_id');
            $table->integer('team_id');

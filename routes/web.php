@@ -106,5 +106,9 @@ Route::post('/addTeamOnCups/{cup_id}', 'CupController@addTeamOnCup');
 
 //for recharging a user account
 Route::get('recharge_account', 'AccountController@rechargeAccountView');
-Route::post('recharge_account\{user_id}', 'AccountController@rechargeAccount');
+Route::get('recharge_account/{user_id}', 'AccountController@rechargeUserAccount');
+Route::post('recharge_account/{user_id}', 'AccountController@rechargeAccount');
+
+//searching user
+Route::get('/search', 'AccountController@search');
 

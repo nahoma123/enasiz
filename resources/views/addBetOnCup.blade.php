@@ -21,17 +21,17 @@
                         </div>
                         <h4><label for="id">Minimum wage</label></h4>
                         <div>
-                            <input style="width: 40%" type="number" step="0.01" min="0" name="minimum_wage" class="form-control" placeholder="Enter the odd of the team to win the cup">
+                            <input style="width: 40%" type="number" step="0.01" min="0" name="minimum_wage" class="form-control" placeholder="Enter the minimum wage" required>
                         </div>
 
                         <h4><label for="id">Maximum wage</label></h4>
                         <div>
-                            <input style="width: 40%" type="number" step="0.01" min="0" name="maximum_wage" class="form-control" placeholder="Enter the odd of the team to win the cup">
+                            <input style="width: 40%" type="number" step="0.01" min="0" name="maximum_wage" class="form-control" placeholder="Enter the maximum wage" required>
                         </div>
 
-                        <h4><label for="id">Cup winning odd</label></h4>
+                        <h4><label for="id">Summation of team's last five seasons rank</label></h4>
                         <div>
-                            <input style="width: 40%" type="number" step="0.01" min="0" name="cup_odd" class="form-control" placeholder="Enter the odd of the team to win the cup">
+                            <input style="width: 40%" type="number" step="0.01" min="0" name="cup_odd" class="form-control" placeholder="Enter the summation of the team's rank" required>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-success">Add Bet</button>
