@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\BetOnTransfer;
+use App\User;
 use Illuminate\Support\Facades\Session;
 class BetsOnTransfersController extends Controller
 {
@@ -16,17 +17,22 @@ class BetsOnTransfersController extends Controller
     public function index()
     {
         //
+        
     }
     
     
     public function addTransferBet(Request $request){
+        $user= User::where("email",$request->email)->first();
+        $user_id=$user->id;
+
         $betOnTransfer= new BetOnTransfer;
-        $betOnTransfer->user_id=$request->user_id;
+        $betOnTransfer->user_id=$user_id;
         $betOnTransfer->transfer_bet_id=$request->transfer_bet_id;
         $betOnTransfer->amount=$request->amount;
         $betOnTransfer->profit_amount=0;
         $betOnTransfer->bet_on=$request->bet_on;
         $betOnTransfer->save();
+        return 200;
     }
     /**
      * Show the form for creating a new resource.

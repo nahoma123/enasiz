@@ -27,6 +27,20 @@ class BetsOnLeaguesController extends Controller
         $number_of_wagers = ($total_bets_on_a_league).length();
     }
 
+    
+    public function placeALeaueBet(Request $request){
+        $user= User::where("email",$request->email)->first();
+        $user_id=$user->id;
+
+        $betOnTransfer= new BetOnLeague;
+        $betOnTransfer->user_id=$user_id;
+        $betOnTransfer->transfer_bet_id=$request->transfer_bet_id;
+        $betOnTransfer->amount=$request->amount;
+        $betOnTransfer->profit_amount=0;
+        $betOnTransfer->bet_on=$request->bet_on;
+        $betOnTransfer->save();
+        return 200;
+    }
     public function index()
     {
         //
