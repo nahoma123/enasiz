@@ -34,4 +34,5 @@ class LeagueBetsController extends Controller
         Session::flash('flash_message', 'You have successfuly added bet on league');
         return back();
     }
+    
 }

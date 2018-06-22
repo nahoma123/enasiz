@@ -27,7 +27,7 @@ class MatchBetsController extends Controller
         $odds_for_away_team = ((($request->shots_on_goal_away) / 5) + (5 / ($request->shots_on_goal_home))) / 10;
         $matchBet->winning_odds_home = $odds_for_home_team;
         $matchBet->winning_odds_away = $odds_for_away_team;
-        $matchBet->draw_odds = ($odds_for_home_team + $odds_for_away_team) / 2;
+        //$matchBet->draw_odds = ($odds_for_home_team + $odds_for_away_team) / 2;
         $matchBet->type_of_bet = 'Public';
         $matchBet->match_id = $match_id;
         $matchBet->user_id = Auth::user()->id;
@@ -61,15 +61,18 @@ class MatchBetsController extends Controller
             $this->settleBet($matche_bet->id, $result);
         }
     }
-    public function settleBet(MatchBet $matchBet,$result){
+    public function settleBet($matchBet,$result){
+        $matchBet= MatchBet::find($matchBet)->first();
         if($matchBet->status == 0){
 
 
-
             foreach ($matchBet->with('betsOnMatch')->get()[0]->betsOnMatch as $bet){
+                if(is_null($bet)){
+                    return 200;
+                }
                 if($bet->team == $result){ // if win
                     // 
-                    $account =Account::find($bet->user_id);
+                    $account =Account::where('users_id',$bet->user_id)->first();
                     if($bet->team ==0){
                         $account->current_amount=$account->current_amount +$bet->bet_amount*$matchBet->winning_odds_home  ;
                     }
@@ -103,7 +106,9 @@ class MatchBetsController extends Controller
                     $trans->save();
                     
                 }else{ // if lose
-                    $account =Account::find($bet->user_id);
+                    //dd($bet->user_id);
+                    $account =Account::where('users_id',$bet->user_id)->first();
+                    //dd($account);
                     $account->current_amount=$account->current_amount -$bet->bet_amount  ;
                     $bet->profit_made=$bet->bet_amount * (-1);
                     $account->save();

@@ -53,7 +53,7 @@ class MatchController extends Controller
 
     public function viewMatch(Match $match)
     {
-        $match = Match::all()->load('awayteam','hometeam','competition','bets');
+        $match=Match::where("match_status",0)->get()->load('awayteam','hometeam','competition','bets');
         return $match;
     }
     public function getMatch($match)
@@ -106,6 +106,15 @@ class MatchController extends Controller
 //        }
         //return $mnbt;
         return view('viewmatchespage')->with('matches', $matches)->with('competitions', $competitions)->with('teams', $teams);
+    }
+    public function viewLeagueMatches()
+    {
+        $match=Match::where("match_status",0)->where("competition_type","App\League")->get()->load('awayteam','hometeam','competition','bets');
+        return $match;
+    }
+    public function viewCupMatches(){
+        $match=Match::where("match_status",0)->where("competition_type","App\Cup")->get()->load('awayteam','hometeam','competition','bets');
+        return $match;
     }
 
     public function deleteMatch($id)
