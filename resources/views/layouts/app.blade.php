@@ -306,7 +306,7 @@ body {
 
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a class="" href="{{ url('/report/userAccountActivity/staffstatus') }}">Check Staff Status</a></li>
-                                        <li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Detail and General Report</a></li>
+                                        {{--<li><a class="" href="{{ url('/report/generate/generalreport_form') }}">Detail and General Report</a></li>--}}
                                     
                                     </ul>
                                 </li>
@@ -329,7 +329,6 @@ body {
                                             </li>
                                         </ul>
                                 </li>
-                                                                <li class="pull-right"><a style="color: white; margin-left: 50px" href="#" data-target="#"><b><span class="glyphicon glyphicon-bell" ></span><span class="badge">5</span></b></a></li>
 
                                         </ul>
                                     </div>

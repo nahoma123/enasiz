@@ -39,7 +39,7 @@
                         <h4><label for="endTime">Maximum wage</label></h4>
                         <input type="number" min="0" class="form-control" id="EndTime" name="maximum_wage" required>
                     </div>
-                    <button type="submit" class="btn btn-default">Add Transfer Bet</button>
+                    <button type="submit" style="margin-left: 83%" class="btn btn-primary">Add Transfer Bet</button>
         </form>
 
 

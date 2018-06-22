@@ -19,7 +19,7 @@
                                 <input style="width: 40%" type="number" min="0" name="recharge_ammount" class="form-control" placeholder="Enter the name of the league" required>
                             </div><br>
 
-                            <button type="submit" class="btn btn-success">Recharge account</button>
+                            <button type="submit" class="btn btn-primary">Recharge account</button>
                 </form>
             </div>
         </div>

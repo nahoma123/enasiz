@@ -34,7 +34,7 @@
                             <input style="width: 40%" type="number" step="0.01" min="0" name="cup_odd" class="form-control" placeholder="Enter the summation of the team's rank" required>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-success">Add Bet</button>
+                        <button type="submit" style="margin-right: 10px" class="btn btn-primary">Add Bet</button>
                 </form>
             </div>
         </div>

@@ -29,7 +29,7 @@
                         </div>
                         <br>
 
-                        <button type="submit" class="btn btn-success">Add Result</button>
+                        <button type="submit" style="margin: 10px" class="btn btn-success">Add Result</button>
                 </form>
             </div>
         </div>

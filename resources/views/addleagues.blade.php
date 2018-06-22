@@ -37,7 +37,7 @@
                                 <h4><label for="venue">Number of teams</label></h4>
                                 <input style="width: 40%" type="number" min="0" name="number_of_teams" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue" required>
                             </div>
-                            <button type="submit" class="btn btn-success">Add</button>
+                            <button type="submit" class="btn btn-primary">Add League</button>
                 </form>
             </div>
         </div>

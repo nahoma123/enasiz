@@ -18,7 +18,7 @@ class LeagueBetsController extends Controller
     public function addBetOnALeagueView($league_id)
     {
         //$team_ids = DB::table('team')->select('team_id')->where('cup_id', $cup_id)->get();
-        $teams = Team::select('team_name', 'id')->where('league_id', $league_id)->get();
+        $teams = Team::select('team_name', 'id')->where('league_id', $league_id)->orderBy('team_name')->get();
         return view('addBetOnLeague')->with('league_id', $league_id)->with('teams', $teams);
     }
     public function addBetOnALeague(Request $request, $league_id)
@@ -30,6 +30,10 @@ class LeagueBetsController extends Controller
         $league_bet->league_odd = $league_odd;
         $league_bet->league_id = $league_id;
         $league_bet->team_id = $request->team;
+        if(($request->minimum_wage) >= ($request->maximum_wage)){
+            Session::flash('flash_message_error', 'Maximum wage can not be less than minimum wage');
+            return back();
+        }
         $league_bet->save();
         Session::flash('flash_message', 'You have successfuly added bet on league');
         return back();

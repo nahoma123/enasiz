@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('login'));
+    //redirect('/login');
 });
 
 Auth::routes();
@@ -24,6 +25,7 @@ Route::get('/matchdetail', function(){
 Route::get('/matches', 'MatchController@matchesPage');
 Route::get('/findTeamToDropdown', 'MatchController@findTeamToDropdown');
 Route::get('/findLeagueToDropdown', 'MatchController@findLeagueToDropdown');
+Route::get('/findVenueToDropdown', 'MatchController@findVenueToDropdown');
 
 //for add results on leagues
 Route::get('/findLeagueToDropdownTwo', 'MatchController@findLeagueToDropdownTwo');
@@ -111,4 +113,7 @@ Route::post('recharge_account/{user_id}', 'AccountController@rechargeAccount');
 
 //searching user
 Route::get('/search', 'AccountController@search');
+
+//firebase testing
+Route::get('/phpfirebase_sdk', 'FirebaseController@index');
 

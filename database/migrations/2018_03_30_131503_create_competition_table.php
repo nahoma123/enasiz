@@ -18,7 +18,6 @@ class CreateCompetitionTable extends Migration
             $table->string('competition_type');
             $table->integer('competition_id');
             $table->dateTime('start_time');
-            $table->dateTime('end_time');
             $table->string('match_status');
             $table->string('venue');
             $table->timestamps();

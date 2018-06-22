@@ -34,7 +34,7 @@
                             <input style="width: 40%" type="number" step="0.01" min="0" name="league_odd" class="form-control" placeholder="Enter the odd of the team to win the cup" required>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-success">Add Bet</button>
+                        <button type="submit" class="btn btn-primary">Add Bet</button>
                 </form>
             </div>
         </div>

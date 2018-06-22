@@ -16,7 +16,7 @@
                         <table id="mytable" class="table table-bordred table-striped">
 
                             <thead>
-                            <th>League</th>
+                            <th>Competition</th>
                             <th style="text-align: center">Match</th>
                             <th>Time</th>
                             <th>Edit</th>

@@ -94,6 +94,8 @@
     <div class="form-check">
    
     <button type="submit" class="btn btn-login float-right">LOG IN</button>
+<br> <br>
+        <a href="/register"><button type="button" class="btn btn-register float-right">Register</button></a>
   </div>
   
 </form>

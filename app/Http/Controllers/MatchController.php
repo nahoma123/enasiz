@@ -25,15 +25,30 @@ class MatchController extends Controller
             $match->competition_id = $request->competition_name;
             $match->venue = $request->venue;
             $match->start_time = $request->start_time;
-            $match->end_time = $request->end_time;
 //            $home_team_id = Team::select('id')->where('id', $request->home_team)->get();;
 //            $away_team_id = Team::select('id')->where('id', $request->away_team)->get();;
             if(($request->home_team) == ($request->away_team)){
                 Session::flash('flash_message_error', 'Home team and away team can not be the same');
                 return back();
             }
-            if(($request->start_time) >= ($request->end_time)){
-                Session::flash('flash_message_error', 'End time can not be less than start time');
+            $match->save();
+            $match->homeTeam()->save(Team::find($request->home_team));
+            $match->awayTeam()->save(Team::find($request->away_team));
+            Session::flash('flash_message', 'You have successfuly added the match');
+            return back();
+        }
+
+        if (($request->competition) == 'Cup'){
+            $competition_type_is = League::select('league_name')->where('id', $request->competition_name)->get();
+            $w = $request->competition;
+            $match->competition_type = "App\Cup";
+            $match->competition_id = $request->competition_name;
+            $match->venue = $request->venue;
+            $match->start_time = $request->start_time;
+//            $home_team_id = Team::select('id')->where('id', $request->home_team)->get();;
+//            $away_team_id = Team::select('id')->where('id', $request->away_team)->get();;
+            if(($request->home_team) == ($request->away_team)){
+                Session::flash('flash_message_error', 'Home team and away team can not be the same');
                 return back();
             }
             $match->save();
@@ -62,19 +77,22 @@ class MatchController extends Controller
     }
     public function findLeagueTeamToDropdown(Request $request)
     {
-        $data = Team::select('team_name', 'id')->where('league_id', $request->id)->take(100)->get();
+        $data = Team::select('team_name', 'id')->where('league_id', $request->id)->take(100)->orderBy('team_name')->get();
+        //$team = $data::orderBy('team_name')->get();
         return response()->json($data);
     }
     public function findLeagueToDropdown(Request $request)
     {
         //$data = League::select('team_name', 'id')->where('league_id', $request->id)->take(100)->get();
-        $data = League::all();
+        $data = League::orderBy('league_name')->get();
         return response()->json($data);
     }
     public function findLeagueToDropdownTwo(Request $request)
     {
         //$data = League::select('team_name', 'id')->where('league_id', $request->id)->take(100)->get();
+        //$leagues = League::orderBy('league_name')->get();
         $data = League::select('league_name', 'id')->where('id', $request->id)->take(100)->get();
+        //$leagues = $data::orderBy('league_name')->get();
         //$data = League::all();
         return response()->json($data);
     }
@@ -82,6 +100,13 @@ class MatchController extends Controller
     {
         //$data = Team::select('team_name', 'id')->where('league_id', $request->id)->take(100)->get();
         $data = Cup::all();
+        return response()->json($data);
+    }
+
+    public function findVenueToDropdown(Request $request)
+    {
+        $data = Team::select('venue', 'id')->where('id', $request->id)->take(100)->get();
+        //$data = Cup::all();
         return response()->json($data);
     }
 

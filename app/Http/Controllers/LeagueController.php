@@ -61,8 +61,23 @@ class LeagueController extends Controller
         $league_result->first_team = $first_team[0]['id'];
         $league_result->second_team = $second_team[0]['id'];
         $league_result->third_team = $third_team[0]['id'];
-        $league_result->fouth_team = $fourth_team[0]['id'];
+        $league_result->fourth_team = $fourth_team[0]['id'];
         $league_result->fifth_team = $fifth_team[0]['id'];
+        if((($request->first_team) == ($request->second_team))
+            || (($request->first_team) == ($request->third_team))
+            || (($request->first_team) == ($request->fourth_team))
+            || (($request->first_team) == ($request->fifth_team))
+            || (($request->second_team) == ($request->third_team))
+            || (($request->second_team) == ($request->fourth_team))
+            || (($request->second_team) == ($request->fifth_team))
+            || (($request->third_team) == ($request->fourth_team))
+            || (($request->third_team) == ($request->fifth_team))
+            || (($request->fourth_team) == ($request->fifth_team))
+
+        ){
+            Session::flash('flash_message_error', 'Two fields can not be the same');
+            return back();
+        }
         $league_result->save();
         Session::flash('flash_message', 'You have successfuly added result on the league');
         return back();

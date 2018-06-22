@@ -141,7 +141,7 @@ class MatchBetsController extends Controller
         elseif (($request->home_team_score) < ($request->away_team_score)){
             $result = 1;
         }
-        $this->settleAllBets($match_id, $result);
+//        $this->settleAllBets($match_id, $result);
         Session::flash('flash_message', 'You have successfuly added result on the match');
         return back();
     }

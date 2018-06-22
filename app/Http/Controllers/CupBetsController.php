@@ -37,6 +37,10 @@ class CupBetsController extends Controller
         $cup_bet->cups_id = $cup_id;
         //$team = Team::select('id')->where('team_name', $request->team)->get();
         $cup_bet->team_id = $request->team;
+        if(($request->maximum_wage) <= ($request->minimum_wage)){
+            Session::flash('flash_message_error', 'Maximum wage can not be less than or equal to minimum wage');
+            return back();
+        }
         $cup_bet->save();
         Session::flash('flash_message', 'You have successfuly added bet on cup');
         return back();

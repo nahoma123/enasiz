@@ -13,7 +13,7 @@
 	    <h4><label for="id">Competition Type</label></h4>
 
 		  <div>
-			  <select id="selectOpt1" style="width: 30%" class="form-control competition_type" name="competition">
+			  <select id="selectOpt1" style="width: 50%" class="form-control competition_type" name="competition">
                   
                       <option value="League">League</option>
                       <option value="Cup">Cup</option>
@@ -23,38 +23,37 @@
           <div class="form-group">
               <h4><label for="id">Competition Name</label></h4>
               <div>
-                  <select id="selectOpt2" style="width: 40%" class="competition_name form-control" name="competition_name">
+                  <select id="selectOpt2" style="width: 50%" class="competition_name form-control" name="competition_name">
 
                   </select>
               </div>
 
               <div class="form-group">
                   <h4><label for="homeTeam">Home Team</label></h4>
-                  <select id="selectOpt2" style="width: 70%" class="home_team form-control" name="home_team">
+                  <select id="selectOpt2" style="width: 50%" class="home_team form-control" name="home_team">
                       <option value="0" disabled="true" selected="true">Home Team</option>
                   </select>
               </div>
               <div class="form-group">
                   <h4><label for="awayTeam">Away Team</label></h4>
-                  <select id="selectOpt2" style="width: 70%" class="away_team form-control" name="away_team">
+                  <select id="selectOpt2" style="width: 50%" class="away_team form-control" name="away_team">
                       <option value="0" disabled="true" selected="true">Away Team</option>
                   </select>
               </div>
 
 	  <div class="form-group">
 	    <h4><label for="startTime">Start Time</label></h4>
-	    <input type="datetime-local" class="form-control" id="StartTime" name="start_time" required>
-	  </div>
-	  <div class="form-group">
-	    <h4><label for="endTime">End Time</label></h4>
-	    <input type="datetime-local" class="form-control" id="EndTime" name="end_time" required>
+	    <input style="width: 50%" type="datetime-local" class="form-control" id="StartTime" name="start_time" required>
 	  </div>
 	  <div class="form-group">
 	    <h4><label for="venue">Venue</label></h4>
-	    <input type="text" name="venue" class="form-control" id="exampleInputEmail2" placeholder="Enter the name of the Venue" required>
+          <select id="selectOpt2"  style="width: 50%" class="venue form-control" name="venue">
+              <option id="basic" value="0" disabled="true" selected="true">Venue</option>
+          </select>
 	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+	  <button type="submit" style="margin-left: 40%" class="btn btn-primary">Submit</button>
 	</form>
+
 	
   
 </div>
@@ -143,6 +142,29 @@
                     }
                     div.find('.away_team').html(" ");
                     div.find('.away_team').append(op);
+                },
+                error:function () {
+
+                }
+
+            });
+
+        });
+        $(document).on('change', '.home_team', function (){
+            var comp_id = $(this).val();
+            var div = $(this).parent().parent();
+            //console.log(cat_id);
+            var op = " ";
+            $.ajax({
+                type:'get',
+                url:'{!!URL::to('findVenueToDropdown')!!}',
+                data:{'id':comp_id},
+                success:function (data) {
+                    for(var i = 0; i < data.length; i++){
+                        op += '<option name="venue" value="'+data[i].venue+'">'+data[i].venue +'</option>';
+                    }
+                    div.find('.venue').html(" ");
+                    div.find('.venue').append(op);
                 },
                 error:function () {
 

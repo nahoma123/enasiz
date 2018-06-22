@@ -25,6 +25,14 @@ class TransferBetsController extends Controller
         $transferBet->transfer_odd = $request->transfer_odd;
         $transferBet->minimum_wage = $request->minimum_wage;
         $transferBet->maximum_wage = $request->maximum_wage;
+        if(($request->maximum_wage) <= ($request->minimum_wage)){
+            Session::flash('flash_message_error', 'Maximum wage can not be less than or equal to minimum wage');
+            return back();
+        }
+        if(($request->transfer_to) == ($request->transfer_from)){
+            Session::flash('flash_message_error', 'Both teams can not be the same');
+            return back();
+        }
         $transferBet->save();
         Session::flash('flash_message', 'You have successfuly added transfer bet');
         return back(); 

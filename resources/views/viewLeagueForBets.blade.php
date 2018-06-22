@@ -9,15 +9,15 @@
             <div class="form-group">
 
                 <div class="form-group">
-                    <h4><label for="homeTeam">League</label></h4>
+                    <h4><label style="margin-left: 15px" for="homeTeam">League</label></h4>
                     {{--home team = league--}}
-                    <select id="selectOpt2" style="width: 70%" class="cup form-control" name="league">
+                    <select style="margin-left: 15px; width: 30%" id="selectOpt2" class="cup form-control" name="league">
                         @foreach($leagues as $league)
                             <option value="{{$league->id}}" selected="true">{{$league->league_name}}</option>
                         @endforeach
                     </select>
                 </div>
-                <a href=""><button class="btn btn-primary" style="float:right; margin-top: -4%">Add bet</button></a>
+                <a href=""><button class="btn btn-primary" style="float:right; margin-top: -6%; margin-right: 55%">Add bet</button></a>
 
             </div>
             <script type="text/javascript">

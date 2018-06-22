@@ -13,7 +13,7 @@
                         <h4><label for="id">League</label></h4>
 
                         <div>
-                            <select id="selectOpt1" style="width: 30%" class="form-control competition_type" name="league">
+                            <select id="selectOpt1" style="width: 40%" class="form-control competition_type" name="league">
                                 @foreach($leagues as $league)
                                     <option value="{{$league->id}}">{{$league->league_name}}</option>
                                 @endforeach
@@ -29,7 +29,7 @@
                                 <h4><label for="startTime">Team thumbnail</label></h4>
                                 <input type="file" style="width: 40%" class="form-control" name="team_thumbnail">
                             </div>
-                            <button type="submit" class="btn btn-success">Add Team</button>
+                            <button type="submit" class="btn btn-primary">Add Team</button>
                 </form>
             </div>
         </div>
